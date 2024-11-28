@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MeditationPage = () => {
-    return <div></div>;
+    return <div>meditation</div>;
 };
 
 export default MeditationPage;

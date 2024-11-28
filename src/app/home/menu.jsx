@@ -13,19 +13,29 @@ const Menu = () => {
                     </Link>
                 </GridItem>
                 <GridItem colSpan={1}>
-                    <WaterButton label='Time for 명상' />
+                    <Link href='/meditation'>
+                        <WaterButton label='Time for 명상' />
+                    </Link>
                 </GridItem>
                 <GridItem rowSpan={2}>
-                    <WaterButton label='증상별 Encyclopedia' />
+                    <Link href='/encyclopedia'>
+                        <WaterButton label='증상별 Encyclopedia' />
+                    </Link>
                 </GridItem>
                 <GridItem rowSpan={2}>
-                    <WaterButton label='먹킷 list' />
+                    <Link href='/mukkitlist'>
+                        <WaterButton label='먹킷 list' />
+                    </Link>
                 </GridItem>
                 <GridItem colSpan={1}>
-                    <WaterButton label='감정 Diary' />
+                    <Link href='/diary'>
+                        <WaterButton label='감정 Diary' />
+                    </Link>
                 </GridItem>
                 <GridItem rowSpan={1} colSpan={2}>
-                    <WaterButton label='힐링 Entertainment' />
+                    <Link href='/entertain'>
+                        <WaterButton label='힐링 Entertainment' />
+                    </Link>
                 </GridItem>
             </Grid>
         </>
