@@ -26,10 +26,10 @@ export function LEDBoardsSwiperDaily() {
                 }}
                 loop={true}
                 modules={[Autoplay]}
-                className='LEDBoardsSwiperDaily !h-7'
+                className='LEDBoardsSwiperDaily !h-7 font-custom1'
             >
                 <SwiperSlide>
-                    <Box display='flex' alignItems='center' justifyContent='center' className='!NeoDunggeunmo'>
+                    <Box display='flex' alignItems='center' justifyContent='center'>
                         000부터 시작하면 돼요!!!
                     </Box>
                 </SwiperSlide>
@@ -61,7 +61,7 @@ export function LEDBoardsSwiperWeekly() {
                 }}
                 loop={true}
                 modules={[Autoplay]}
-                className='LEDBoardsSwiperWeekly !h-7'
+                className='LEDBoardsSwiperWeekly !h-7 font-custom1'
             >
                 <SwiperSlide>
                     <Box display='flex' alignItems='center' justifyContent='center'>
@@ -98,7 +98,7 @@ export function LEDBoardsSwiperMonthly() {
                 }}
                 loop={true}
                 modules={[Autoplay]}
-                className='LEDBoardsSwiperMonthly !h-7'
+                className='LEDBoardsSwiperMonthly !h-7 font-custom1'
             >
                 <SwiperSlide>
                     <Box display='flex' alignItems='center' justifyContent='center'>

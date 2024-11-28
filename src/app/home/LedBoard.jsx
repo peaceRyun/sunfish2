@@ -6,7 +6,7 @@ export const LedBoardDaily = () => {
     return (
         <>
             <Flex gap='2' direction='column'>
-                <Heading>오늘의 전광판</Heading>
+                <Heading className='text-white [text-shadow:0_0_10px_#67e8f9]'>오늘의 전광판</Heading>
                 <Box className='bg-black rounded text-white'>
                     <LEDBoardsSwiperDaily />
                 </Box>
@@ -19,7 +19,7 @@ export const LedBoardWeekly = () => {
     return (
         <>
             <Flex gap='2' direction='column'>
-                <Heading>이번주 전광판</Heading>
+                <Heading className='text-white [text-shadow:0_0_10px_#67e8f9]'>이번주 전광판</Heading>
                 <Box className='bg-black rounded text-white'>
                     <LEDBoardsSwiperWeekly />
                 </Box>
@@ -32,7 +32,7 @@ export const LedBoardMonthly = () => {
     return (
         <>
             <Flex gap='2' direction='column'>
-                <Heading>이번달 전광판</Heading>
+                <Heading className='text-white [text-shadow:0_0_10px_#67e8f9]'>이번달 전광판</Heading>
                 <Box className='bg-black rounded text-white'>
                     <LEDBoardsSwiperMonthly />
                 </Box>
