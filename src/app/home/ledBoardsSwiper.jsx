@@ -29,18 +29,18 @@ export function LEDBoardsSwiperDaily() {
                 className='LEDBoardsSwiperDaily !h-7'
             >
                 <SwiperSlide>
-                    <Box display='flex' alignItems='center' justifyContent='center'>
-                        000부터 시작하면 되요!!!
+                    <Box display='flex' alignItems='center' justifyContent='center' className='!NeoDunggeunmo'>
+                        000부터 시작하면 돼요!!!
                     </Box>
                 </SwiperSlide>
                 <SwiperSlide>
                     <Box display='flex' alignItems='center' justifyContent='center'>
-                        000을 첫 번째로 하면 되요
+                        000을 첫 번째로 하면 돼요
                     </Box>
                 </SwiperSlide>
                 <SwiperSlide>
                     <Box display='flex' alignItems='center' justifyContent='center'>
-                        000을 두 번째로 하면 되요
+                        000을 두 번째로 하면 돼요
                     </Box>
                 </SwiperSlide>
             </Swiper>
@@ -65,7 +65,7 @@ export function LEDBoardsSwiperWeekly() {
             >
                 <SwiperSlide>
                     <Box display='flex' alignItems='center' justifyContent='center'>
-                        000부터 시작하면 되요!!!
+                        000부터 시작하면 돼요!!!
                     </Box>
                 </SwiperSlide>
                 <SwiperSlide>
