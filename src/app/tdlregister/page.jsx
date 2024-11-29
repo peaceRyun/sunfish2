@@ -1,7 +1,10 @@
 'use client';
 
+import { HStack, useRadioGroup, VStack } from '@chakra-ui/react';
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
+import RadioCard from './components/RadioCard';
+import RadioCardTwo from './components/RadioCardTwo';
 
 export default function TdlRegisterPage() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -11,6 +14,20 @@ export default function TdlRegisterPage() {
     const [passwordError, setPasswordError] = useState('');
     const [termsChecked, setTermsChecked] = useState({ term1: false, term2: false });
 
+    //step 1 radio 버튼
+    const options = ['오늘까지', '이번주 0요일까지', '이번 달까지'];
+
+    const { getRootProps, getRadioProps } = useRadioGroup({
+        name: 'period',
+        defaultValue: '오늘까지',
+        onChange: console.log,
+    });
+
+    const group = getRootProps();
+
+    //step 2 radio 버튼
+
+    //step 관련
     const handleNext = () => {
         // if (currentStep === 0 && !emailError && email) {
         //     setCurrentStep(currentStep + 1);
@@ -111,8 +128,21 @@ export default function TdlRegisterPage() {
 
                     {/* Step Content */}
                     <div className='text-center mt-6 flex-1'>
-                        {currentStep === 0 && <div>스텝 1 내용</div>}
-                        {currentStep === 1 && <div>스텝 2 내용</div>}
+                        {currentStep === 0 && (
+                            <div>
+                                <VStack {...group}>
+                                    {options.map((value) => {
+                                        const radio = getRadioProps({ value });
+                                        return (
+                                            <RadioCard key={value} {...radio}>
+                                                {value}
+                                            </RadioCard>
+                                        );
+                                    })}
+                                </VStack>
+                            </div>
+                        )}
+                        {currentStep === 1 && <div>스텝2내용</div>}
                         {currentStep === 2 && <div>스텝 3 내용</div>}
                     </div>
                 </>
@@ -127,36 +157,38 @@ export default function TdlRegisterPage() {
 
             {/* Navigation Buttons */}
             {currentStep <= 2 && (
-                <div className='flex justify-between mt-6'>
-                    <button
-                        className={`px-4 py-2 rounded-md font-medium ${
-                            currentStep === 0
-                                ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
-                                : 'bg-blue-600 text-white hover:bg-blue-700'
-                        }`}
-                        onClick={handlePrev}
-                        disabled={currentStep === 0}
-                    >
-                        이전
-                    </button>
-                    <button
-                        className={`px-4 py-2 rounded-md font-medium ${
-                            // (currentStep === 0 && (!email || emailError)) ||
-                            // (currentStep === 1 && (!password || passwordError)) ||
-                            // (currentStep === 2 && !(termsChecked.term1 && termsChecked.term2))
-                            false
-                                ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
-                                : 'bg-blue-600 text-white hover:bg-blue-700'
-                        }`}
-                        onClick={handleNext}
-                        // disabled={
-                        //     (currentStep === 0 && (!email || emailError)) ||
-                        //     (currentStep === 1 && (!password || passwordError)) ||
-                        //     (currentStep === 2 && !(termsChecked.term1 && termsChecked.term2))
-                        // }
-                    >
-                        {currentStep === 2 ? '완료' : '다음'}
-                    </button>
+                <div className='bottom-0 left-0 right-0'>
+                    <div className='flex justify-between p-4 bg-white border-t'>
+                        <button
+                            className={`px-4 py-2 rounded-md font-medium ${
+                                currentStep === 0
+                                    ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
+                                    : 'bg-blue-600 text-white hover:bg-blue-700'
+                            }`}
+                            onClick={handlePrev}
+                            disabled={currentStep === 0}
+                        >
+                            이전
+                        </button>
+                        <button
+                            className={`px-4 py-2 rounded-md font-medium ${
+                                // (currentStep === 0 && (!email || emailError)) ||
+                                // (currentStep === 1 && (!password || passwordError)) ||
+                                // (currentStep === 2 && !(termsChecked.term1 && termsChecked.term2))
+                                false
+                                    ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
+                                    : 'bg-blue-600 text-white hover:bg-blue-700'
+                            }`}
+                            onClick={handleNext}
+                            // disabled={
+                            //     (currentStep === 0 && (!email || emailError)) ||
+                            //     (currentStep === 1 && (!password || passwordError)) ||
+                            //     (currentStep === 2 && !(termsChecked.term1 && termsChecked.term2))
+                            // }
+                        >
+                            {currentStep === 2 ? '완료' : '다음'}
+                        </button>
+                    </div>
                 </div>
             )}
         </div>
