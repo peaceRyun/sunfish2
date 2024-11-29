@@ -6,7 +6,7 @@ import React from 'react';
 const tdlRegisterLayout = ({ children }) => {
     return (
         <>
-            <Header type='type1' title='about' sharing={true} prev={true} />
+            {/* <Header type='type1' title='about' sharing={true} prev={true} /> */}
             <Main>{children}</Main>
             <Footer />
         </>
