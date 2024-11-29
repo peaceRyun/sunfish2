@@ -4,17 +4,13 @@ import React from 'react';
 const BreadCrumb = () => {
     return (
         <>
-            <Breadcrumb separator='>'>
+            <Breadcrumb fontSize='2xl' separator='>'>
                 <BreadcrumbItem>
-                    <BreadcrumbLink href='#'>먹킷 List</BreadcrumbLink>
+                    <BreadcrumbLink href='/mukkitlist'>먹킷 List</BreadcrumbLink>
                 </BreadcrumbItem>
 
                 <BreadcrumbItem>
                     <BreadcrumbLink href='#'>우울</BreadcrumbLink>
-                </BreadcrumbItem>
-
-                <BreadcrumbItem isCurrentPage>
-                    <BreadcrumbLink href='#'>About</BreadcrumbLink>
                 </BreadcrumbItem>
             </Breadcrumb>
         </>
