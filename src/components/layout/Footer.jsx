@@ -6,7 +6,7 @@ import { BookMarked, UserRound } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <footer className='bg-gray-100 fixed bottom-0 inset-x-0'>
+        <footer className='fixed bottom-0 inset-x-0 z-50 bg-white-700 backdrop-blur-md '>
             <Container className='w-full h-14 px-5 py-0'>
                 <Flex justify='space-between' gap='5px' className='h-full'>
                     <Box className='m-auto'>
