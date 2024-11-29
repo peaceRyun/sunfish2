@@ -31,7 +31,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                         <span className='sr-only'>Your Company</span>
                                         <Image
                                             alt=''
-                                            src='/images/pattern/common/logo.svg'
+                                            src='/images/components/logo.svg'
                                             width={32}
                                             height={32}
                                             className='h-8 w-auto'
@@ -73,7 +73,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                             <span className='sr-only'>Your Company</span>
                                             <Image
                                                 alt=''
-                                                src='/images/pattern/common/logo.svg'
+                                                src='/images/components/logo.svg'
                                                 width={32}
                                                 height={32}
                                                 className='h-8 w-auto'
