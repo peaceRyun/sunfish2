@@ -1,10 +1,20 @@
 'use client';
 
-import { HStack, useRadioGroup, VStack } from '@chakra-ui/react';
+import {
+    Grid,
+    HStack,
+    Input,
+    InputGroup,
+    InputLeftAddon,
+    InputRightAddon,
+    Stack,
+    Textarea,
+    useRadioGroup,
+    VStack,
+} from '@chakra-ui/react';
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import RadioCard from './components/RadioCard';
-import RadioCardTwo from './components/RadioCardTwo';
 
 export default function TdlRegisterPage() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -16,17 +26,21 @@ export default function TdlRegisterPage() {
 
     //step 1 radio 버튼
     const options = ['오늘까지', '이번주 0요일까지', '이번 달까지'];
-
-    const { getRootProps, getRadioProps } = useRadioGroup({
+    const { getRootProps: getRootProps1, getRadioProps: getRadioProps1 } = useRadioGroup({
         name: 'period',
         defaultValue: '오늘까지',
         onChange: console.log,
     });
-
-    const group = getRootProps();
+    const group1 = getRootProps1();
 
     //step 2 radio 버튼
-
+    const optionsTwo = ['Now! Hard.', 'Later. Hard.', 'Now! Easy!', 'Later. Easy!'];
+    const { getRootProps: getRootProps2, getRadioProps: getRadioProps2 } = useRadioGroup({
+        name: 'priority',
+        defaultValue: 'Now! Easy!',
+        onChange: console.log,
+    });
+    const group2 = getRootProps2();
     //step 관련
     const handleNext = () => {
         // if (currentStep === 0 && !emailError && email) {
@@ -130,9 +144,9 @@ export default function TdlRegisterPage() {
                     <div className='text-center mt-6 flex-1'>
                         {currentStep === 0 && (
                             <div>
-                                <VStack {...group}>
+                                <VStack {...group1}>
                                     {options.map((value) => {
-                                        const radio = getRadioProps({ value });
+                                        const radio = getRadioProps1({ value });
                                         return (
                                             <RadioCard key={value} {...radio}>
                                                 {value}
@@ -142,8 +156,47 @@ export default function TdlRegisterPage() {
                                 </VStack>
                             </div>
                         )}
-                        {currentStep === 1 && <div>스텝2내용</div>}
-                        {currentStep === 2 && <div>스텝 3 내용</div>}
+                        {currentStep === 1 && (
+                            <div>
+                                {' '}
+                                <Grid
+                                    w='100%'
+                                    h='100%'
+                                    p='20px'
+                                    templateRows='repeat(2, 1fr)'
+                                    templateColumns='repeat(2, 1fr)'
+                                    gap={4}
+                                    {...group2}
+                                >
+                                    {optionsTwo.map((value) => {
+                                        const radio = getRadioProps2({ value });
+                                        return (
+                                            <RadioCard key={value} {...radio}>
+                                                {value}
+                                            </RadioCard>
+                                        );
+                                    })}
+                                </Grid>
+                            </div>
+                        )}
+                        {currentStep === 2 && (
+                            <div>
+                                <Stack spacing={4} p='20px'>
+                                    <InputGroup>
+                                        <InputLeftAddon>제목</InputLeftAddon>
+                                        <Input type='tel' placeholder='전광판에 보이지는 않아요!' />
+                                    </InputGroup>
+
+                                    {/* If you add the size prop to `InputGroup`, it'll pass it to all its children. */}
+                                    <InputGroup size='sm'>
+                                        <InputLeftAddon>지시한 사람</InputLeftAddon>
+                                        <Input placeholder='직책을 적어주세요!' />
+                                    </InputGroup>
+
+                                    <Textarea isInvalid placeholder='내용을 적어주세요' />
+                                </Stack>
+                            </div>
+                        )}
                     </div>
                 </>
             )}
