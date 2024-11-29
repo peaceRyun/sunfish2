@@ -23,7 +23,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
             // 메인헤더
             case 'type1':
                 return (
-                    <header className='fixed top-0 left-0 right-0 z-50 bg-white-700 backdrop-blur-md flex items-center h-20'>
+                    <header className='max-w-sm mx-auto fixed top-0 left-0 right-0 z-50 bg-white-700 backdrop-blur-md flex items-center h-20'>
                         <Container size='full' className='flex justify-between items-center'>
                             <div aria-label='Global' className='flex items-center justify-between lg:px-8 w-full'>
                                 <h1 className='flex lg:flex-1'>
@@ -119,7 +119,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
             // 이전, 타이틀, 각페이지에 맞는 버튼
             case 'type2':
                 return (
-                    <header className='fixed top-0 left-0 right-0 z-50 bg-white flex items-center h-14 border-b border-gray-200'>
+                    <header className='max-w-sm mx-auto fixed top-0 left-0 right-0 z-50 bg-white flex items-center h-14 border-b border-gray-200'>
                         <Container className='flex justify-between items-center relative'>
                             <Button variant='icon' align='left'>
                                 <ChevronLeft strokeWidth={3} />
