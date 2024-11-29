@@ -1,4 +1,4 @@
-import { AbsoluteCenter, Box, Button as ChakraButton, Spinner } from '@chakra-ui/react';
+import { AbsoluteCenter, Button as ChakraButton, Span, Spinner } from '@chakra-ui/react';
 import * as React from 'react';
 
 export const Button = React.forwardRef(function Button(props, ref) {
@@ -10,9 +10,7 @@ export const Button = React.forwardRef(function Button(props, ref) {
                     <AbsoluteCenter display='inline-flex'>
                         <Spinner size='inherit' color='inherit' />
                     </AbsoluteCenter>
-                    <Box as='span' display='inline' opacity={0}>
-                        {children}
-                    </Box>
+                    <Span opacity={0}>{children}</Span>
                 </>
             ) : loading && loadingText ? (
                 <>
