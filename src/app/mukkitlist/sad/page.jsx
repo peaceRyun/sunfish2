@@ -16,7 +16,6 @@ const SadPage = () => {
     return (
         <>
             <Flex direction='column' p='80px 20px 0' gap='10px'>
-                <BreadCrumb />
                 <input
                     type='search'
                     value={search}

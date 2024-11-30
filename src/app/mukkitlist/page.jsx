@@ -9,7 +9,6 @@ const MukkitListPage = () => {
     return (
         <>
             <Flex direction='column' gap='10' p='80px 20px'>
-                <BreadCrumb />
                 <MoodMenu />
             </Flex>
         </>
