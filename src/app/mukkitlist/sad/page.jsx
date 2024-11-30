@@ -2,7 +2,6 @@
 
 import { Flex, SimpleGrid } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import BreadCrumb from './components/BreadCrumb';
 import FoodItem from './components/FoodItem';
 import { foodlist } from '@/data/foodlistData';
 

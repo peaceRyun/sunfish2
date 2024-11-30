@@ -3,7 +3,6 @@
 import { Flex, Heading } from '@chakra-ui/react';
 import React from 'react';
 import MoodMenu from './moodMenu';
-import BreadCrumb from './components/BreadCrumb';
 
 const MukkitListPage = () => {
     return (

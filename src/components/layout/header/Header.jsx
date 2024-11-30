@@ -7,6 +7,7 @@ import Navigation from './Navigation';
 import Image from 'next/image';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Dialog, DialogPanel } from '@headlessui/react';
+import Link from 'next/link';
 
 const navigation = [
     { name: 'Product', href: '#' },
@@ -27,7 +28,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                         <Container size='full' className='flex justify-between items-center'>
                             <div aria-label='Global' className='flex items-center justify-between lg:px-8 w-full'>
                                 <h1 className='flex lg:flex-1'>
-                                    <a href='#' className='-m-1.5 p-1.5'>
+                                    <Link href='/' className='-m-1.5 p-1.5'>
                                         <span className='sr-only'>Your Company</span>
                                         <Image
                                             alt=''
@@ -36,7 +37,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                             height={32}
                                             className='h-8 w-auto'
                                         />
-                                    </a>
+                                    </Link>
                                 </h1>
                                 <div className='flex lg:hidden'>
                                     <button
