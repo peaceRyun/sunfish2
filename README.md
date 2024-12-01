@@ -37,5 +37,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## 제작기간
 
--   2024.11.25 ~ 27
--   2024.11.28 ~
+-   2024.11.23 ~ 24 기획
+-   2024.11.25 ~ 27 피그마 디자인
+-   2024.11.28 ~ 코딩 개발
