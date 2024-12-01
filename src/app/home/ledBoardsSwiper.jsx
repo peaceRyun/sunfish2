@@ -87,25 +87,41 @@ export function LEDBoardsSwiperMonthly() {
     return (
         <>
             <Swiper
-                width='100%'
                 height='30px'
+                direction='horizontal'
                 slidesPerView={1}
-                spaceBetween={30}
-                direction='vertical'
+                speed={8000}
                 autoplay={{
-                    delay: 2500,
+                    delay: 0,
                     disableOnInteraction: false,
+                    pauseOnMouseEnter: false,
                 }}
                 loop={true}
                 modules={[Autoplay]}
-                className='LEDBoardsSwiperMonthly !h-7 font-custom1'
+                className='LEDBoardsSwiperMonthly !h-7 font-custom1 w-full'
             >
                 <SwiperSlide>
-                    <Box display='flex' alignItems='center' justifyContent='center'>
+                    <Box display='flex' alignItems='center' justifyContent='center' className='whitespace-nowrap'>
+                        이번달에는 000, 000, 000, 000이 있어요.
+                    </Box>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Box display='flex' alignItems='center' justifyContent='center' className='whitespace-nowrap'>
+                        이번달에는 000, 000, 000, 000이 있어요.
+                    </Box>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Box display='flex' alignItems='center' justifyContent='center' className='whitespace-nowrap'>
                         이번달에는 000, 000, 000, 000이 있어요.
                     </Box>
                 </SwiperSlide>
             </Swiper>
+
+            <style jsx global>{`
+                .LEDBoardsSwiperMonthly .swiper-wrapper {
+                    transition-timing-function: linear !important;
+                }
+            `}</style>
         </>
     );
 }
