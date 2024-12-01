@@ -15,14 +15,14 @@ const DropDown = () => {
                 className='w-full text-left bg-white border border-gray-300 text-gray-700 rounded-md py-2  flex justify-between items-center'
                 onClick={toggleDropdown}
             >
-                <Link href='#'>요리명</Link> <ChevronDown />
+                <Link href='#'>요리명 : RCP_NM</Link> <ChevronDown />
             </button>
             <div
                 className={`mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg ${isOpen ? '' : 'hidden'}`}
             >
-                <a href='#' className='block px-4 py-2 text-gray-800 hover:bg-gray-200'>
-                    요리 설명 1
-                </a>
+                <Link href='#' className='block px-4 py-2 text-gray-800 hover:bg-gray-200'>
+                    요리 설명 : RCP_NA_TIP
+                </Link>
             </div>
         </div>
     );
