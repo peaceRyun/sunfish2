@@ -1,7 +1,14 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import PinCode from './components/PinCode';
 
 const DiaryPage = () => {
-    return <div>diary</div>;
+    return (
+        <>
+            <PinCode />
+        </>
+    );
 };
 
 export default DiaryPage;
