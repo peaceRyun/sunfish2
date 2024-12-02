@@ -6,7 +6,7 @@ import { LedBoardDaily, LedBoardMonthly, LedBoardWeekly } from './LedBoard';
 const Home = () => {
     return (
         <>
-            <div className="bg-[url('/images/pattern/main/bg-water.gif')] bg-cover bg-center bg-no-repeat min-h-screen w-full relative">
+            <div className='bg-custom-blue-200 min-h-screen w-full relative'>
                 <Flex gap='4' direction='column' p='80px 20px'>
                     <LedBoardDaily />
                     <LedBoardWeekly />
