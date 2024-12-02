@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Container, Heading } from '@chakra-ui/react';
+import { Button, Container, Flex, Heading } from '@chakra-ui/react';
 import { ChevronLeft, Menu, Share } from 'lucide-react';
 import React, { useState } from 'react';
 import Navigation from './Navigation';
@@ -8,6 +8,13 @@ import Image from 'next/image';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import Link from 'next/link';
+import { Hi_Melody } from 'next/font/google';
+
+const hiMelody = Hi_Melody({
+    subsets: ['latin'],
+    weight: '400',
+    display: 'swap',
+});
 
 const navigation = [
     { name: 'Product', href: '#' },
@@ -28,15 +35,23 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                         <Container size='full' className='flex justify-between items-center'>
                             <div aria-label='Global' className='flex items-center justify-between lg:px-8 w-full'>
                                 <h1 className='flex lg:flex-1'>
-                                    <Link href='/' className='-m-1.5 p-1.5'>
+                                    <Link href='/'>
                                         <span className='sr-only'>Your Company</span>
-                                        <Image
-                                            alt=''
-                                            src='/images/components/logo.svg'
-                                            width={32}
-                                            height={32}
-                                            className='h-8 w-auto'
-                                        />
+                                        <Flex justify='space-between' align='center' gap='8px'>
+                                            <Image
+                                                alt=''
+                                                src='/images/pattern/main/logo1.png'
+                                                width={32}
+                                                height={32}
+                                                className='h-8 w-auto'
+                                            />
+                                            <Flex direction='column'>
+                                                <div className={`leading-3 ${hiMelody.className}`}>Sunfish</div>
+                                                <div className={`leading-3 ${hiMelody.className}`}>
+                                                    Supporter for Your Stress
+                                                </div>
+                                            </Flex>
+                                        </Flex>
                                     </Link>
                                 </h1>
                                 <div className='flex lg:hidden'>
