@@ -6,13 +6,13 @@ import Link from 'next/link';
 const Menu = () => {
     return (
         <>
-            <Grid w='100%' h='500px' templateRows='repeat(4, 1fr)' templateColumns='repeat(2, 1fr)' gap={4}>
+            <Grid w='100%' h='600px' templateRows='repeat(5, 1fr)' templateColumns='repeat(2, 1fr)' gap={4}>
                 <GridItem rowSpan={1} colSpan={2}>
                     <Link href='/tdlregister'>
                         <WaterButton label='Todolist 등록하기' />
                     </Link>
                 </GridItem>
-                <GridItem colSpan={1}>
+                <GridItem>
                     <Link href='/meditation'>
                         <WaterButton label='Time for 명상' />
                     </Link>
@@ -27,7 +27,7 @@ const Menu = () => {
                         <WaterButton label='먹킷 list' />
                     </Link>
                 </GridItem>
-                <GridItem colSpan={1}>
+                <GridItem>
                     <Link href='/diary'>
                         <WaterButton label='감정 Diary' />
                     </Link>
