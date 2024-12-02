@@ -31,6 +31,7 @@ const EncyclopediaPage = () => {
                             );
                         })}
                     </Flex>
+                    <Flex gap='8'></Flex>
                 </Flex>
             </div>
         </>
