@@ -11,6 +11,13 @@ const theme = extendTheme({
         Input,
         Steps,
     },
+    styles: {
+        global: {
+            body: {
+                bg: 'gray.50',
+            },
+        },
+    },
 });
 
 export default theme;
