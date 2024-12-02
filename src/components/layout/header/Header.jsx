@@ -9,6 +9,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import Link from 'next/link';
 import { Hi_Melody } from 'next/font/google';
+import BackButton from '@/components/pattern/BackButton';
 
 const hiMelody = Hi_Melody({
     subsets: ['latin'],
@@ -17,10 +18,10 @@ const hiMelody = Hi_Melody({
 });
 
 const navigation = [
-    { name: 'Product', href: '#' },
-    { name: 'Features', href: '#' },
-    { name: 'Marketplace', href: '#' },
-    { name: 'Company', href: '#' },
+    { name: 'ToDolist 등록', href: '/tdlregister' },
+    { name: '먹킷list', href: '/mukkitlist' },
+    { name: '감정 Diary', href: '/diary' },
+    { name: '증상별 Encyclopedia', href: '/encyclopedia' },
 ];
 
 const Header = ({ type = 'type1', title, sharing, prev }) => {
@@ -76,7 +77,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                     ))}
                                 </nav>
                                 <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
-                                    <a href='#' className='text-sm/6 font-semibold text-gray-900'>
+                                    <a href='/login' className='text-sm/6 font-semibold text-gray-900'>
                                         Log in <span aria-hidden='true'>&rarr;</span>
                                     </a>
                                 </div>
@@ -89,7 +90,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                             <span className='sr-only'>Your Company</span>
                                             <Image
                                                 alt=''
-                                                src='/images/components/logo.svg'
+                                                src='/images/pattern/main/logo1.png'
                                                 width={32}
                                                 height={32}
                                                 className='h-8 w-auto'
@@ -119,7 +120,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                             </div>
                                             <div className='py-6'>
                                                 <a
-                                                    href='#'
+                                                    href='/login'
                                                     className='-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50'
                                                 >
                                                     Log in
@@ -135,12 +136,9 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
             // 이전, 타이틀, 각페이지에 맞는 버튼
             case 'type2':
                 return (
-                    <header className='max-w-sm mx-auto fixed top-0 left-0 right-0 z-50 bg-white flex items-center h-14 border-b border-gray-200'>
+                    <header className='max-w-sm mx-auto fixed top-0 left-0 right-0 z-50 bg-transparent flex items-center h-14'>
                         <Container className='flex justify-between items-center relative'>
-                            <Button variant='icon' align='left'>
-                                <ChevronLeft strokeWidth={3} />
-                                <span className='blind'>이전</span>
-                            </Button>
+                            <BackButton />
                             {title && (
                                 <Heading
                                     as='h1'
