@@ -7,7 +7,7 @@ const DiaryUnlockedLayout = ({ children }) => {
     return (
         <>
             <Header />
-            <Main>{children}</Main>
+            <Main className='bg-custom-blue-200'>{children}</Main>
         </>
     );
 };

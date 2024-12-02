@@ -21,11 +21,15 @@ module.exports = {
         },
         extend: {
             fontFamily: {
-                NeoDunggeunmo: ['NeoDunggeunmo', 'sans-serif'], // 커스텀 폰트 추가
+                NeoDunggeunmo: ['NeoDunggeunmo', 'sans-serif'],
             },
             colors: {
                 background: 'var(--background)',
                 foreground: 'var(--foreground)',
+                'custom-blue': {
+                    100: '#F2F9FF',
+                    200: '#EAF3FD',
+                },
             },
         },
     },
