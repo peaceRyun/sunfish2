@@ -3,8 +3,9 @@
 import { Box, Flex } from '@chakra-ui/react';
 import Image from 'next/image';
 import React from 'react';
-import { CirclePlus } from 'lucide-react';
+import { Angry, Annoyed, CirclePlus, Frown, Smile } from 'lucide-react';
 import DiaryCard from './components/DiaryCard';
+import Link from 'next/link';
 
 const DiaryUnlockedPage = () => {
     return (
@@ -21,12 +22,15 @@ const DiaryUnlockedPage = () => {
                 </Box>
                 <Flex width='100%' gap='3' direction='column' p='0 20px' className='absolute top-48 left-0'>
                     <span className='text-xs text-gray-600'>2024</span>
-                    <DiaryCard />
-                    <DiaryCard />
-                    <DiaryCard />
+                    <DiaryCard MoodIcon={Smile} fill='lightgreen' />
+                    <DiaryCard MoodIcon={Angry} fill='tomato' />
+                    <DiaryCard MoodIcon={Frown} fill='#4892E0' />
+                    <DiaryCard MoodIcon={Annoyed} fill='#e0d648' />
                 </Flex>
                 <Box className='fixed bottom-20 left-1/2 -translate-x-1/2'>
-                    <CirclePlus color='white' fill='#4892E0' size={50} strokeWidth={1} />
+                    <Link href='/diary/success/diaryunlocked/newdiary'>
+                        <CirclePlus color='white' fill='#4892E0' size={50} strokeWidth={1} />
+                    </Link>
                 </Box>
             </Box>
         </>

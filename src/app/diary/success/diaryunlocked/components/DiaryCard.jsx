@@ -2,7 +2,7 @@ import { Flex, Heading } from '@chakra-ui/react';
 import { Smile } from 'lucide-react';
 import React from 'react';
 
-const DiaryCard = () => {
+const DiaryCard = ({ MoodIcon = Smile, fill }) => {
     return (
         <>
             <Flex gap='2' direction='column' p='20px 10px 15px' className='bg-custom-blue-100 rounded'>
@@ -11,8 +11,8 @@ const DiaryCard = () => {
                         <strong className='text-lg leading-none'>02</strong>
                         <span className='text-xs text-gray-500 leading-none'>12월</span>
                     </Flex>
-                    <div className=''>
-                        <Smile fill='lightgreen' />
+                    <div>
+                        <MoodIcon fill={fill} />
                     </div>
                 </Flex>
                 <Heading as='h2' className='text-sm font-bold'>
@@ -23,5 +23,4 @@ const DiaryCard = () => {
         </>
     );
 };
-
 export default DiaryCard;
