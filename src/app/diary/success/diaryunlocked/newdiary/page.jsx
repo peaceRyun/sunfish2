@@ -36,7 +36,7 @@ export default function NewDiaryPage() {
                     type='text'
                     name='inputName'
                     placeholder='제목'
-                    className='text-lg font-bold'
+                    className='text-lg font-bold bg-custom-blue-100'
                     value={title}
                     onChange={handleChangeTitle}
                 ></input>
@@ -44,7 +44,7 @@ export default function NewDiaryPage() {
                     name='description'
                     rows='4'
                     cols='50'
-                    className='text-gray-600 text-sm'
+                    className='text-gray-600 text-sm bg-custom-blue-100'
                     placeholder='육하원칙(누가, 언제, 어디서, 무엇을, 어떻게, 왜)가 포함되면 좋아요!'
                     value={text}
                     onChange={handleChangeText}
