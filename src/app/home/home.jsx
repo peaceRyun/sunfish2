@@ -6,7 +6,7 @@ import { LedBoardDaily, LedBoardMonthly, LedBoardWeekly } from './LedBoard';
 const Home = () => {
     return (
         <>
-            <div className='bg-no-repeat bg-cover bg-center min-h-screen w-full relative'>
+            <div className=' min-h-screen w-full relative'>
                 <Flex gap='4' direction='column' p='100px 20px'>
                     <Flex gap='4' direction='column'>
                         <LedBoardDaily />
