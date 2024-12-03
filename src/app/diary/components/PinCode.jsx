@@ -109,7 +109,7 @@ const PinCode = () => {
                     onClick={handleSubmit}
                     w='80px'
                     h='80px'
-                    className='absolute bottom-60 right-10'
+                    className='absolute bottom-56 right-14'
                 >
                     {step === 'set' ? 'PIN 설정' : '확인'}
                 </Button>

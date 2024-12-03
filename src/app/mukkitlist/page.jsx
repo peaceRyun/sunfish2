@@ -7,7 +7,7 @@ import MoodMenu from './moodMenu';
 const MukkitListPage = () => {
     return (
         <>
-            <Flex direction='column' gap='10' p='80px 20px'>
+            <Flex direction='column' gap='10' p='100px 20px'>
                 <MoodMenu />
             </Flex>
         </>
