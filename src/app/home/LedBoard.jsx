@@ -11,7 +11,7 @@ export const LedBoardDaily = () => {
                 </Heading>
                 <Box
                     border='1px solid'
-                    className='bg-gray-950 text-white rounded-tl-md rounded-tr-2xl rounded-bl-2xl rounded-br-md'
+                    className='bg-gray-950 text-white rounded-tl-md rounded-tr-2xl rounded-bl-2xl rounded-br-md border-solid border-2 border-stone-500'
                 >
                     <LEDBoardsSwiperDaily />
                 </Box>
@@ -27,7 +27,7 @@ export const LedBoardWeekly = () => {
                 <Heading fontSize='24px' style={{ letterSpacing: '-0.10em' }}>
                     이번주 전광판
                 </Heading>
-                <Box className='bg-gray-950 text-white rounded-tl-md rounded-tr-2xl rounded-bl-2xl rounded-br-md'>
+                <Box className='bg-gray-950 text-white rounded-tl-md rounded-tr-2xl rounded-bl-2xl rounded-br-md border-solid border-2 border-stone-500'>
                     <LEDBoardsSwiperWeekly />
                 </Box>
             </Flex>
@@ -42,7 +42,7 @@ export const LedBoardMonthly = () => {
                 <Heading fontSize='24px' style={{ letterSpacing: '-0.10em' }}>
                     이번달 전광판
                 </Heading>
-                <Box className='bg-gray-950 text-white rounded-tl-md rounded-tr-2xl rounded-bl-2xl rounded-br-md'>
+                <Box className='bg-gray-950 text-white rounded-tl-md rounded-tr-2xl rounded-bl-2xl rounded-br-md border-solid border-2 border-stone-500'>
                     <LEDBoardsSwiperMonthly />
                 </Box>
             </Flex>
