@@ -18,7 +18,7 @@ const Menu = () => {
                 <GridItem rowSpan={1} colSpan={2}>
                     <Link href='/tdlregister' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
-                            label='Todolist 등록하기'
+                            label='전광판 등록하기'
                             bg='rgba(91,162,200,0.4)'
                             bgHover='rgba(91,162,200,0.6)'
                             url='url(/images/components/tdlregister.png)'
