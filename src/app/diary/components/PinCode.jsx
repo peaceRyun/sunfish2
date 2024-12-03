@@ -55,61 +55,65 @@ const PinCode = () => {
     };
     return (
         <>
-            <Text fontSize='lg' fontWeight='bold'>
-                {step === 'set' && 'PIN 코드 설정'}
-                {step === 'enter' && 'PIN 코드 입력'}
-            </Text>
+            <Flex direction='column' gap='10px' p='100px 0'>
+                <div className='absolute top-7 left-1/2 -translate-x-1/2 p-10'>
+                    <Text fontSize='lg' fontWeight='bold'>
+                        {step === 'set' && 'PIN 코드 설정'}
+                        {step === 'enter' && 'PIN 코드 입력'}
+                    </Text>
+                </div>
 
-            <Flex gap='4' justify='space-between' p='80px 40px 0'>
-                <PinInput mask size='lg' onChange={setPin} value={pin} isInvalid={!!error}>
-                    <PinInputField />
-                    <PinInputField />
-                    <PinInputField />
-                    <PinInputField />
-                </PinInput>
+                <Flex gap='4' justify='space-between' p='80px 40px 0'>
+                    <PinInput mask size='lg' onChange={setPin} value={pin} isInvalid={!!error}>
+                        <PinInputField />
+                        <PinInputField />
+                        <PinInputField />
+                        <PinInputField />
+                    </PinInput>
+                </Flex>
+
+                {/* 에러 메시지 */}
+                {error && (
+                    <Text color='red.500' fontSize='sm' className='absolute top-36 left-1/2 -translate-x-2/4'>
+                        {error}
+                    </Text>
+                )}
+
+                {/* Number Pad */}
+                <Grid templateColumns='repeat(3, 1fr)' gap='4' p='70px 40px'>
+                    {['1', '2', '3', '4', '5', '6', '7', '8', '9', 'clear', '0'].map((key) => (
+                        <Button
+                            key={key}
+                            size='lg'
+                            colorScheme='blue'
+                            onClick={() => {
+                                if (key === 'clear') {
+                                    setPin((prev) => prev.slice(0, -1)); // 마지막 입력 삭제
+                                } else {
+                                    setPin((prev) => (prev + key).slice(0, 4)); // 최대 4자리 제한
+                                }
+                            }}
+                            w='80px'
+                            h='80px'
+                            mx='auto'
+                        >
+                            {key === 'clear' ? 'DEL' : key}
+                        </Button>
+                    ))}
+                </Grid>
+
+                {/* Submit 버튼 */}
+                <Button
+                    colorScheme='blue'
+                    size='lg'
+                    onClick={handleSubmit}
+                    w='80px'
+                    h='80px'
+                    className='absolute bottom-60 right-10'
+                >
+                    {step === 'set' ? 'PIN 설정' : '확인'}
+                </Button>
             </Flex>
-
-            {/* 에러 메시지 */}
-            {error && (
-                <Text color='red.500' fontSize='sm' className='absolute top-40 left-1/2 -translate-x-2/4'>
-                    {error}
-                </Text>
-            )}
-
-            {/* Number Pad */}
-            <Grid templateColumns='repeat(3, 1fr)' gap='4' p='70px 40px'>
-                {['1', '2', '3', '4', '5', '6', '7', '8', '9', 'clear', '0'].map((key) => (
-                    <Button
-                        key={key}
-                        size='lg'
-                        colorScheme='blue'
-                        onClick={() => {
-                            if (key === 'clear') {
-                                setPin((prev) => prev.slice(0, -1)); // 마지막 입력 삭제
-                            } else {
-                                setPin((prev) => (prev + key).slice(0, 4)); // 최대 4자리 제한
-                            }
-                        }}
-                        w='80px'
-                        h='80px'
-                        mx='auto'
-                    >
-                        {key === 'clear' ? 'DEL' : key}
-                    </Button>
-                ))}
-            </Grid>
-
-            {/* Submit 버튼 */}
-            <Button
-                colorScheme='blue'
-                size='lg'
-                onClick={handleSubmit}
-                w='80px'
-                h='80px'
-                className='absolute bottom-60 right-10'
-            >
-                {step === 'set' ? 'PIN 설정' : '확인'}
-            </Button>
         </>
     );
 };
