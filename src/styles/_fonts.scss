@@ -34,9 +34,9 @@ a {
 
 .font-custom1 {
     font-family: 'DungGeunMo';
-    color: #f8f53b; /* 밝은 노란색 베이스 */
-    text-shadow: 0 0 4px #f8f53b, /* 내부 글로우 - 줄임 */ 0 0 8px #f8f53b, /* 중간 글로우 - 줄임 */ 0 0 12px #f3bc08,
-        /* 외부 글로우 - 줄임 */ 0 0 16px #f3bc08; /* 가장 바깥쪽 빛 번짐 - 줄임 */
+    color: #00f3ff; /* 밝은 하늘색 베이스 */
+    text-shadow: 0 0 4px #00f3ff, /* 내부 글로우 */ 0 0 8px #00f3ff, /* 중간 글로우 */ 0 0 12px #0099ff;
+    /* 외부 글로우 */
     font-weight: 500;
 }
 
