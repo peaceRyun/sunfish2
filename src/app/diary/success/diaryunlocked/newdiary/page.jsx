@@ -4,6 +4,9 @@ import { Button, Flex } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useState } from 'react';
 import MoodModal from './components/MoodModal';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import CalendarModal from './components/CalendarModal';
 
 export default function NewDiaryPage() {
     const [title, setTitle] = useState('');
@@ -29,8 +32,7 @@ export default function NewDiaryPage() {
             >
                 <Flex justify='space-between'>
                     <Flex gap='2' align='end'>
-                        <strong className='text-lg leading-none'>02</strong>
-                        <span className='text-xs text-gray-500 leading-none'>12월</span>
+                        <CalendarModal />
                     </Flex>
                     <MoodModal fill='lightgreen' />
                 </Flex>
