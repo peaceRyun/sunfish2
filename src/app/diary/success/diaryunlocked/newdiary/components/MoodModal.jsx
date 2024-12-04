@@ -33,7 +33,7 @@ function BasicModal({ MoodIcon = Smile, fill }) {
 
     return (
         <>
-            <Button variant='plain' onClick={onOpen}>
+            <Button variant='plain' onClick={onOpen} className='w-12 h-12 p-0'>
                 <selectedMood.icon fill={selectedMood.fill} />
             </Button>
 

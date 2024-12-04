@@ -30,7 +30,7 @@ export default function NewDiaryPage() {
                 p='60px 20px 15px'
                 className='bg-custom-blue-100 rounded'
             >
-                <Flex justify='space-between'>
+                <Flex justify='space-between' align='center'>
                     <Flex gap='2' align='end'>
                         <CalendarModal />
                     </Flex>
@@ -57,7 +57,7 @@ export default function NewDiaryPage() {
                 ></textarea>
             </Flex>
             <Link href='#'>
-                <Button className='absolute z-50 top-3 right-5 px-4 rounded text-sm'>저장</Button>
+                <Button className='absolute z-50 top-3 right-5 px-4 h-3 rounded text-sm'>저장</Button>
             </Link>
         </>
     );

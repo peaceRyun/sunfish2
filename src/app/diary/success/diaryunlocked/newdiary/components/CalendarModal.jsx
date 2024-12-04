@@ -32,24 +32,22 @@ const CalendarModal = () => {
     };
     return (
         <>
-            <div>
-                <Button onClick={onOpen} variant='plain' w='full' p='0'>
-                    <span style={{ fontSize: '2rem', fontWeight: 'bold' }}>{day}</span>
-                    <span style={{ fontSize: '0.8rem', margin: '0 4px' }}>{month}</span>
-                    <span style={{ fontSize: '0.8rem' }}>{year}</span>
-                </Button>
+            <Button onClick={onOpen} variant='plain' w='full' p='0'>
+                <span style={{ fontSize: '2rem', fontWeight: 'bold' }}>{day}</span>
+                <span style={{ fontSize: '0.8rem', margin: '0 4px' }}>{month}</span>
+                <span style={{ fontSize: '0.8rem' }}>{year}</span>
+            </Button>
 
-                <Modal isOpen={isOpen} onClose={onClose} size='md'>
-                    <ModalOverlay />
-                    <ModalContent>
-                        <ModalHeader>날짜 선택</ModalHeader>
-                        <ModalCloseButton />
-                        <ModalBody>
-                            <Calendar onChange={handleDateSelect} value={value} className='mx-auto' />
-                        </ModalBody>
-                    </ModalContent>
-                </Modal>
-            </div>
+            <Modal isOpen={isOpen} onClose={onClose} size='md'>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>날짜 선택</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        <Calendar onChange={handleDateSelect} value={value} className='mx-auto' />
+                    </ModalBody>
+                </ModalContent>
+            </Modal>
         </>
     );
 };
