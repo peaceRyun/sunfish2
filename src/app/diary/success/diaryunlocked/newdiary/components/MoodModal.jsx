@@ -25,7 +25,7 @@ function BasicModal({ MoodIcon = Smile, fill }) {
 
             <Modal isOpen={isOpen} onClose={onClose} size='xs'>
                 <ModalOverlay />
-                <ModalContent className='relative w-64 bg-white rounded-2xl shadow-lg'>
+                <ModalContent className='absolute w-64 bg-white rounded-2xl shadow-lg top-10 right-8'>
                     <div
                         className='absolute w-4 h-4 bg-white transform rotate-45'
                         style={{
