@@ -12,7 +12,7 @@ const MenuButton = ({ label, bg, bgHover, url }) => {
             bg={bg}
             backdropFilter='blur(12px)'
             border='2px solid'
-            borderColor='whiteAlpha.100'
+            borderColor='whiteAlpha.300'
             borderTopLeftRadius='md'
             borderTopRightRadius='3xl'
             borderBottomLeftRadius='2xl'
