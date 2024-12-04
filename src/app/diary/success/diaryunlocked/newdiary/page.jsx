@@ -4,13 +4,14 @@ import { Button, Flex } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useState } from 'react';
 import MoodModal from './components/MoodModal';
-import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import CalendarModal from './components/CalendarModal';
+import { useRouter } from 'next/navigation';
 
 export default function NewDiaryPage() {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
+    const router = useRouter();
 
     const handleChangeTitle = (event) => {
         setTitle(event.target.value);
@@ -18,6 +19,16 @@ export default function NewDiaryPage() {
 
     const handleChangeText = (event) => {
         setText(event.target.value);
+    };
+
+    const handleSave = () => {
+        // 로컬 스토리지에 데이터 저장
+        const diaries = JSON.parse(localStorage.getItem('diaries') || '[]');
+        diaries.push({ title, text, date: new Date().toISOString() });
+        localStorage.setItem('diaries', JSON.stringify(diaries));
+
+        // DiaryUnlocked 페이지로 이동
+        router.push('/diary-unlocked');
     };
 
     return (
@@ -56,8 +67,10 @@ export default function NewDiaryPage() {
                     onChange={handleChangeText}
                 ></textarea>
             </Flex>
-            <Link href='#'>
-                <Button className='absolute z-50 top-3 right-5 px-4 h-3 rounded text-sm'>저장</Button>
+            <Link href='/diary/success/diaryunlocked'>
+                <Button onClick={handleSave} className='absolute z-50 top-3 right-5 px-4 h-3 rounded text-sm'>
+                    저장
+                </Button>
             </Link>
         </>
     );
