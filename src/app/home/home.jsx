@@ -10,8 +10,6 @@ const Home = () => {
                 <Flex gap='4' direction='column' p='100px 20px 20px'>
                     <Flex gap='4' direction='column'>
                         <LedBoardDaily />
-                        <LedBoardWeekly />
-                        <LedBoardMonthly />
                     </Flex>
                     <Menu p='30px 0px 30px'></Menu>
                 </Flex>

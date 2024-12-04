@@ -6,9 +6,9 @@ export const LedBoardDaily = () => {
     return (
         <>
             <Flex gap='2' direction='column'>
-                <Heading fontSize='24px' style={{ letterSpacing: '-0.10em' }}>
+                {/* <Heading fontSize='24px' style={{ letterSpacing: '-0.10em' }}>
                     오늘의 전광판
-                </Heading>
+                </Heading> */}
                 <Box
                     border='1px solid'
                     className='bg-gray-950 text-white rounded-tl-md rounded-tr-2xl rounded-bl-2xl rounded-br-md border-solid border-2 border-stone-500'
