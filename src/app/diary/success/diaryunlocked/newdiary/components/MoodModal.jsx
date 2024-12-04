@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Modal,
     ModalOverlay,
@@ -14,13 +14,27 @@ import {
 } from '@chakra-ui/react';
 import { Angry, Annoyed, Frown, Meh, Smile } from 'lucide-react';
 
+const moodIcons = [
+    { icon: Smile, fill: 'lightgreen' },
+    { icon: Angry, fill: 'tomato' },
+    { icon: Frown, fill: '#4892E0' },
+    { icon: Annoyed, fill: '#e0d648' },
+    { icon: Meh, fill: 'lightgray' },
+];
+
 function BasicModal({ MoodIcon = Smile, fill }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const [selectedMood, setSelectedMood] = useState({ icon: Smile, fill: 'lightgreen' });
+
+    const handleMoodSelect = (icon, fill) => {
+        setSelectedMood({ icon: icon, fill: fill });
+        onClose();
+    };
 
     return (
         <>
             <Button variant='plain' onClick={onOpen}>
-                <MoodIcon fill={fill} />
+                <selectedMood.icon fill={selectedMood.fill} />
             </Button>
 
             <Modal isOpen={isOpen} onClose={onClose} size='xs'>
@@ -38,31 +52,17 @@ function BasicModal({ MoodIcon = Smile, fill }) {
 
                     <ModalBody className='p-2'>
                         <Grid templateRows='repeat(1, 1fr)' templateColumns='repeat(5, 1fr)' gap={1}>
-                            <GridItem className='text-center'>
-                                <Button variant='plain' className='p-0 hover:bg-gray-100 rounded-full'>
-                                    <Smile fill='lightgreen' width='36px' height='36px' />
-                                </Button>
-                            </GridItem>
-                            <GridItem className='text-center'>
-                                <Button variant='plain' className='p-0 hover:bg-gray-100 rounded-full'>
-                                    <Angry fill='tomato' width='36px' height='36px' />
-                                </Button>
-                            </GridItem>
-                            <GridItem className='text-center'>
-                                <Button variant='plain' className='p-0 hover:bg-gray-100 rounded-full'>
-                                    <Frown fill='#4892E0' width='36px' height='36px' />
-                                </Button>
-                            </GridItem>
-                            <GridItem className='text-center'>
-                                <Button variant='plain' className='p-0 hover:bg-gray-100 rounded-full'>
-                                    <Annoyed fill='#e0d648' width='36px' height='36px' />
-                                </Button>
-                            </GridItem>
-                            <GridItem className='text-center'>
-                                <Button variant='plain' className='p-0 hover:bg-gray-100 rounded-full'>
-                                    <Meh fill='lightgray' width='36px' height='36px' />
-                                </Button>
-                            </GridItem>
+                            {moodIcons.map((mood, index) => (
+                                <GridItem key={index} className='text-center'>
+                                    <Button
+                                        variant='plain'
+                                        className='p-0 hover:bg-gray-100 rounded-full'
+                                        onClick={() => handleMoodSelect(mood.icon, mood.fill)}
+                                    >
+                                        <mood.icon fill={mood.fill} width='36px' height='36px' />
+                                    </Button>
+                                </GridItem>
+                            ))}
                         </Grid>
                     </ModalBody>
                 </ModalContent>
