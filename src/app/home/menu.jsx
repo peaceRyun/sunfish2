@@ -8,10 +8,10 @@ const Menu = () => {
     return (
         <Box px={0} maxW='390px' mx='auto'>
             <Grid
-                templateRows='repeat(5, minmax(80px, 1fr))'
+                templateRows='repeat(4, minmax(80px, 1fr))'
                 templateColumns='repeat(2, 1fr)'
                 gap={2.5}
-                height='600px'
+                height='400px'
                 width='100%'
                 p='0'
             >
@@ -35,7 +35,7 @@ const Menu = () => {
                         />
                     </Link>
                 </GridItem>
-                <GridItem rowSpan={2}>
+                <GridItem rowSpan={1}>
                     <Link href='/encyclopedia' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='증상별 Encyclopedia'
@@ -45,7 +45,7 @@ const Menu = () => {
                         />
                     </Link>
                 </GridItem>
-                <GridItem rowSpan={2}>
+                <GridItem rowSpan={1}>
                     <Link href='/mukkitlist' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='먹킷 list'
