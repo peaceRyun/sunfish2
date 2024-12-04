@@ -11,7 +11,7 @@ const Menu = () => {
                 templateRows='repeat(4, minmax(80px, 1fr))'
                 templateColumns='repeat(2, 1fr)'
                 gap={2.5}
-                height='400px'
+                height='360px'
                 width='100%'
                 p='0'
             >
@@ -19,9 +19,9 @@ const Menu = () => {
                     <Link href='/tdlregister' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='전광판 등록하기'
-                            bg='rgba(91,162,200,0.4)'
-                            bgHover='rgba(91,162,200,0.6)'
-                            url='url(/images/components/tdlregister.png)'
+                            bg='rgba(70, 180, 255, 0.6)'
+                            bgHover='rgba(70, 180, 255, 0.8)'
+                            url='url(/images/pattern/main/tdlregister1.png)'
                         />
                     </Link>
                 </GridItem>
@@ -29,9 +29,9 @@ const Menu = () => {
                     <Link href='/meditation' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='Time for 명상'
-                            bg='rgba(163,56,78,0.4)'
-                            bgHover='rgba(163,56,78,0.6)'
-                            url='url(/images/components/meditation.png)'
+                            bg='rgba(126,212,173,0.6)'
+                            bgHover='rgba(126,212,173,0.8)'
+                            url='url(/images/pattern/main/meditation1.png)'
                         />
                     </Link>
                 </GridItem>
@@ -39,9 +39,9 @@ const Menu = () => {
                     <Link href='/encyclopedia' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='증상별 Encyclopedia'
-                            bg='rgba(116,167,71,0.4)'
-                            bgHover='rgba(116,167,71,0.6)'
-                            url='url(/images/components/encyclopedia.png)'
+                            bg='rgba(98,167,37,0.6)'
+                            bgHover='rgba(98,167,37,0.8)'
+                            url='url(/images/pattern/main/encyclopedia1.png)'
                         />
                     </Link>
                 </GridItem>
@@ -49,10 +49,10 @@ const Menu = () => {
                     <Link href='/mukkitlist' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='먹킷 list'
-                            bg='rgba(199,178,118,0.4)'
-                            bgHover='rgba(199,178,118,0.6)
+                            bg='rgba(199,167,78,0.6)'
+                            bgHover='rgba(199,167,78,0.8)
                         '
-                            url='url(/images/components/mukkitlist.png)'
+                            url='url(/images/pattern/main/mukkitlist1.png)'
                         />
                     </Link>
                 </GridItem>
@@ -60,9 +60,9 @@ const Menu = () => {
                     <Link href='/diary' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='감정 Diary'
-                            bg='rgba(204,102,132,0.4)'
-                            bgHover='rgba(204,102,132,0.6)'
-                            url='url(/images/components/diary.png)'
+                            bg='rgba(204,61,103,0.6)'
+                            bgHover='rgba(204,61,103,0.8)'
+                            url='url(/images/pattern/main/diary1.png)'
                         />
                     </Link>
                 </GridItem>
@@ -70,9 +70,9 @@ const Menu = () => {
                     <Link href='/entertain' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='힐링 Entertainment'
-                            bg='rgba(123,77,186,0.4)'
-                            bgHover='rgba(123,77,186,0.6)'
-                            url='url(/images/components/entertainment.png)'
+                            bg='rgba(101,39,186,0.6)'
+                            bgHover='rgba(101,39,186,0.8)'
+                            url='url(/images/pattern/main/entertainment1.png)'
                         />
                     </Link>
                 </GridItem>

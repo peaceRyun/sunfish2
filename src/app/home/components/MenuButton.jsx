@@ -8,24 +8,23 @@ const MenuButton = ({ label, bg, bgHover, url }) => {
             height='full'
             display='flex'
             alignItems='center'
-            justifyContent='center'
+            justifyContent='start'
             bg={bg}
             backdropFilter='blur(12px)'
-            border='1px solid'
+            border='2px solid'
             borderColor='whiteAlpha.100'
             borderTopLeftRadius='md'
             borderTopRightRadius='3xl'
             borderBottomLeftRadius='2xl'
             borderBottomRightRadius='md'
             color='white'
-            fontSize='xl'
-            fontWeight='medium'
+            fontSize='lg'
+            fontWeight='semibold'
             padding='3'
             position='relative'
             transition='all 0.3s'
             whiteSpace='normal'
             textAlign='left'
-            overflow='hidden'
             _hover={{
                 bg: bgHover,
                 transform: 'scale(1.02)',
@@ -42,17 +41,16 @@ const MenuButton = ({ label, bg, bgHover, url }) => {
             _after={{
                 content: '""',
                 position: 'absolute',
-                width: '200px',
-                height: '170px',
-                top: '0',
+                width: '130px',
+                height: '86px',
+                bottom: '0',
                 right: '0',
                 bgImage: url,
-                bgSize: 'cover',
+                bgSize: 'contatain',
                 bgRepeat: 'no-repeat',
-                bgPosition: 'center',
+                bgPosition: 'right',
                 borderRadius: 'md',
                 zIndex: -1,
-                opacity: 0.6,
             }}
         >
             {label}
