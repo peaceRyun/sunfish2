@@ -116,7 +116,7 @@ export default function TdlRegisterPage() {
     const progressPercentage = ((currentStep + 1) / 3) * 100;
 
     return (
-        <div className='bg-white rounded-lg flex flex-col gap-4 flex-1'>
+        <div className='bg-white rounded-lg flex flex-col gap-4 flex-1 py-10'>
             {currentStep <= 2 && (
                 <>
                     {/* Step Progress Bar */}
