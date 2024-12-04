@@ -26,21 +26,21 @@ export function LEDBoardsSwiperDaily() {
                 }}
                 loop={true}
                 modules={[Autoplay]}
-                className='LEDBoardsSwiperDaily !h-7 font-custom1'
+                className='LEDBoardsSwiperDaily !h-10 font-custom1 flex flex-col justify-center'
             >
-                <SwiperSlide>
-                    <Box display='flex' alignItems='center' justifyContent='center'>
-                        000부터 시작하면 돼요!!!
+                <SwiperSlide style={{ display: 'flex', alignItems: 'center' }}>
+                    <Box width='100%' textAlign='center'>
+                        000부터 시작하면 됩니다!
                     </Box>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <Box display='flex' alignItems='center' justifyContent='center'>
-                        000을 첫 번째로 하면 돼요
+                <SwiperSlide style={{ display: 'flex', alignItems: 'center' }}>
+                    <Box width='100%' textAlign='center'>
+                        000을 첫 번째로 해보시죠.
                     </Box>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <Box display='flex' alignItems='center' justifyContent='center'>
-                        000을 두 번째로 하면 돼요
+                <SwiperSlide style={{ display: 'flex', alignItems: 'center' }}>
+                    <Box width='100%' textAlign='center'>
+                        000을 두 번째로 하셔야 합니다.
                     </Box>
                 </SwiperSlide>
             </Swiper>
