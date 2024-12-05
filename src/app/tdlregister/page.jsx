@@ -18,11 +18,6 @@ import RadioCard from './components/RadioCard';
 
 export default function TdlRegisterPage() {
     const [currentStep, setCurrentStep] = useState(0);
-    const [email, setEmail] = useState('');
-    const [emailError, setEmailError] = useState('');
-    const [password, setPassword] = useState('');
-    const [passwordError, setPasswordError] = useState('');
-    const [termsChecked, setTermsChecked] = useState({ term1: false, term2: false });
 
     //step 1 radio 버튼
     const options = ['오늘까지', '이번주 0요일까지', '이번 달까지'];
@@ -91,55 +86,6 @@ export default function TdlRegisterPage() {
 
     const handlePrev = () => {
         if (currentStep > 0) setCurrentStep(currentStep - 1);
-    };
-
-    const handleKeyPress = (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault(); // 기본 Enter 동작 방지 (폼 제출 방지)
-            handleNext();
-        }
-    };
-
-    // 이메일 유효성 검사 함수
-    const validateEmail = (value) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) return '유효한 이메일 주소를 입력해주세요.';
-        return '';
-    };
-
-    const handleEmailChange = (e) => {
-        const value = e.target.value;
-        setEmail(value);
-
-        const error = validateEmail(value);
-        setEmailError(error);
-    };
-
-    // 비밀번호 유효성 검사 함수
-    const validatePassword = (value) => {
-        const isValidLength = value.length <= 16;
-        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(value);
-        // const hasNumber = /\d/.test(value);
-
-        if (!isValidLength) return '비밀번호는 16자 이하로 입력해주세요.';
-        if (!hasSpecialChar) return '비밀번호에는 적어도 하나의 특수문자가 포함되어야 합니다.';
-        // if (!hasNumber) return "비밀번호에는 적어도 하나의 숫자가 포함되어야 합니다.";
-
-        return '';
-    };
-
-    const handlePasswordChange = (e) => {
-        const value = e.target.value;
-        setPassword(value);
-
-        const error = validatePassword(value);
-        setPasswordError(error);
-    };
-
-    // 약관 체크박스 상태 업데이트
-    const handleTermsChange = (e) => {
-        const { name, checked } = e.target;
-        setTermsChecked((prev) => ({ ...prev, [name]: checked }));
     };
 
     // Progress percentage calculation
