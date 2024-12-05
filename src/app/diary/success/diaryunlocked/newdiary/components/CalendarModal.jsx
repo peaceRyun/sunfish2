@@ -32,6 +32,7 @@ const CalendarModal = ({ onDateSelect }) => {
         onDateSelect(date);
         onClose();
     };
+    console.log(value);
     return (
         <>
             <Button onClick={onOpen} variant='plain' w='full' p='0'>

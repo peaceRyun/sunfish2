@@ -56,8 +56,6 @@ const DiaryUnlockedPage = () => {
                 justifyContent='space-between'
             >
                 <span className='text-xs text-gray-600'>2024</span>
-                <DiaryCard MoodIcon={Smile} fill='lightgreen' />
-                <DiaryCard MoodIcon={Angry} fill='tomato' />
                 {diaries.map((diary, index) => {
                     const MoodIcon = moodIconMap[diary.mood.name];
                     const { day, month, year } = formatDateParts(diary.date);
