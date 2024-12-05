@@ -81,6 +81,11 @@ export default function TdlRegisterPage() {
             setCurrentStep(currentStep + 1);
         } else if (currentStep === 2) {
             setCurrentStep(currentStep + 1);
+            const eboarddata = JSON.parse(localStorage.getItem('eboarddata') || '[]');
+            eboarddata.push({
+                valueText,
+            });
+            localStorage.setItem('eboarddata', JSON.stringify(eboarddata));
         }
     };
 

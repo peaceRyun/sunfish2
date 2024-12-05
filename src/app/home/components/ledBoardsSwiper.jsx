@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -12,9 +12,15 @@ import 'swiper/css/navigation';
 // import required modules
 import { Autoplay } from 'swiper/modules';
 import { Box } from '@chakra-ui/react';
-import TdlRegisterPage from '@/app/tdlregister/page';
 
 export function LEDBoardsSwiperDaily() {
+    const [eboardData, setEboardData] = useState([]);
+
+    useEffect(() => {
+        const storedEboardData = JSON.parse(localStorage.getItem('eboarddata') || '[]');
+        setEboardData(storedEboardData);
+    }, []);
+
     return (
         <>
             <Swiper
@@ -31,7 +37,7 @@ export function LEDBoardsSwiperDaily() {
             >
                 <SwiperSlide style={{ display: 'flex', alignItems: 'center' }}>
                     <Box width='100%' textAlign='center'>
-                        000부터 시작하면 됩니다!
+                        {eboardData[1].valueText}부터 시작하면 됩니다!
                     </Box>
                 </SwiperSlide>
                 <SwiperSlide style={{ display: 'flex', alignItems: 'center' }}>
