@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { Angry, Annoyed, CirclePlus, Frown, Smile, Meh } from 'lucide-react';
 import DiaryCard from './components/DiaryCard';
 import Link from 'next/link';
+import { format } from 'date-fns';
 
 const moodIconMap = {
     Smile: Smile,
@@ -15,12 +16,23 @@ const moodIconMap = {
     Meh: Meh,
 };
 
+const formatDateParts = (dateString) => {
+    const date = new Date(dateString);
+    return {
+        day: format(date, 'dd'),
+        month: format(date, 'MM월'),
+        year: format(date, 'yyyy'),
+    };
+};
+
 const DiaryUnlockedPage = () => {
     const [diaries, setDiaries] = useState([]);
 
     useEffect(() => {
         const storedDiaries = JSON.parse(localStorage.getItem('diaries') || '[]');
-        setDiaries(storedDiaries);
+        // 날짜를 기준으로 정렬 (최신순)
+        const sortedDiaries = storedDiaries.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setDiaries(sortedDiaries);
     }, []);
 
     return (
@@ -46,10 +58,10 @@ const DiaryUnlockedPage = () => {
                 <span className='text-xs text-gray-600'>2024</span>
                 <DiaryCard MoodIcon={Smile} fill='lightgreen' />
                 <DiaryCard MoodIcon={Angry} fill='tomato' />
-                <DiaryCard MoodIcon={Frown} fill='#4892E0' />
-                <DiaryCard MoodIcon={Annoyed} fill='#e0d648' />
                 {diaries.map((diary, index) => {
                     const MoodIcon = moodIconMap[diary.mood.name];
+                    const { day, month, year } = formatDateParts(diary.date);
+
                     return (
                         <DiaryCard
                             key={index}
@@ -57,6 +69,9 @@ const DiaryUnlockedPage = () => {
                             fill={diary.mood.fill}
                             title={diary.title}
                             text={diary.text}
+                            day={day}
+                            month={month}
+                            year={year}
                         />
                     );
                 })}
