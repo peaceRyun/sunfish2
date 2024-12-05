@@ -67,10 +67,12 @@ export default function NewDiaryPage() {
                     onChange={handleChangeText}
                 ></textarea>
             </Flex>
-            <Link href='/diary/success/diaryunlocked'>
-                <Button onClick={handleSave} className='absolute z-50 top-3 right-5 px-4 h-3 rounded text-sm'>
-                    저장
-                </Button>
+            <Link
+                href='/diary/success/diaryunlocked'
+                onClick={handleSave}
+                className=' button-custom1 btnLightBlue btnPush'
+            >
+                저장
             </Link>
         </>
     );
