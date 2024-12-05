@@ -11,6 +11,7 @@ export default function NewDiaryPage() {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const [selectedMood, setSelectedMood] = useState(null);
+    const [selectedDate, setSelectedDate] = useState(new Date());
 
     const handleChangeTitle = (event) => {
         setTitle(event.target.value);
@@ -24,14 +25,18 @@ export default function NewDiaryPage() {
         setSelectedMood(mood);
     };
 
+    const handleDateSelect = (date) => {
+        setSelectedDate(date);
+    };
+
     const handleSave = () => {
         // 로컬 스토리지에 데이터 저장
         const diaries = JSON.parse(localStorage.getItem('diaries') || '[]');
         diaries.push({
             title,
             text,
-            date: new Date().toISOString(),
-            mood: selectedMood,
+            date: selectedDate.toISOString(),
+            mood: selectedMood || moodIcons[0],
         });
         localStorage.setItem('diaries', JSON.stringify(diaries));
     };
@@ -48,7 +53,7 @@ export default function NewDiaryPage() {
             >
                 <Flex justify='space-between' align='center'>
                     <Flex gap='2' align='end'>
-                        <CalendarModal />
+                        <CalendarModal onDateSelect={handleDateSelect} />
                     </Flex>
                     <MoodModal onMoodSelect={handleMoodSelect} />
                 </Flex>

@@ -14,14 +14,14 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
-const CalendarModal = () => {
+const CalendarModal = ({ onDateSelect }) => {
     const [value, onChange] = useState(new Date());
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     function formatDateParts(date) {
-        const day = format(date, 'dd'); // 날짜
-        const month = format(date, 'MM월'); // 월
-        const year = format(date, 'yyyy'); // 연도
+        const day = format(date, 'dd');
+        const month = format(date, 'MM월');
+        const year = format(date, 'yyyy');
         return { day, month, year };
     }
 
@@ -29,6 +29,7 @@ const CalendarModal = () => {
 
     const handleDateSelect = (date) => {
         onChange(date);
+        onDateSelect(date);
         onClose();
     };
     return (
