@@ -12,6 +12,7 @@ import 'swiper/css/navigation';
 // import required modules
 import { Autoplay } from 'swiper/modules';
 import { Box } from '@chakra-ui/react';
+import TdlRegisterPage from '@/app/tdlregister/page';
 
 export function LEDBoardsSwiperDaily() {
     return (

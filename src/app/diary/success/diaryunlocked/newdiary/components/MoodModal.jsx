@@ -34,7 +34,7 @@ function BasicModal({ onMoodSelect }) {
         onClose();
     };
 
-    const SelectedIcon = selectedMood.Component;
+    // const SelectedIcon = selectedMood.Component;
 
     return (
         <>

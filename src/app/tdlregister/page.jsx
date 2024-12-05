@@ -158,7 +158,6 @@ export default function TdlRegisterPage() {
                         )}
                         {currentStep === 1 && (
                             <div>
-                                {' '}
                                 <Grid
                                     w='100%'
                                     h='100%'
