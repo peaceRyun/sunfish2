@@ -159,7 +159,28 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                 );
             // 로그인 헤더
             case 'type3':
-                return <Container>type3</Container>;
+                return (
+                    <header className='max-w-sm mx-auto fixed top-0 left-0 right-0 z-50 bg-transparent flex items-center h-14'>
+                        <Container className='flex justify-between items-center relative'>
+                            <BackButton />
+                            {title && (
+                                <Heading
+                                    as='h1'
+                                    className='text-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
+                                >
+                                    {title}
+                                </Heading>
+                            )}
+                            {sharing && (
+                                <Button variant='icon' align='right'>
+                                    <Share strokeWidth={3} />
+                                    <span className='blind'>공유</span>
+                                </Button>
+                            )}
+                            {/* {등록 && <Button>등록</Button>} */}
+                        </Container>
+                    </header>
+                );
             default:
                 return <Container>default</Container>;
         }

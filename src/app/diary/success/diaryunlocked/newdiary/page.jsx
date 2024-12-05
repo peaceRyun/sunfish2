@@ -6,12 +6,10 @@ import { useState } from 'react';
 import MoodModal from './components/MoodModal';
 import 'react-calendar/dist/Calendar.css';
 import CalendarModal from './components/CalendarModal';
-import { useRouter } from 'next/navigation';
 
 export default function NewDiaryPage() {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
-    const router = useRouter();
 
     const handleChangeTitle = (event) => {
         setTitle(event.target.value);
@@ -26,9 +24,6 @@ export default function NewDiaryPage() {
         const diaries = JSON.parse(localStorage.getItem('diaries') || '[]');
         diaries.push({ title, text, date: new Date().toISOString() });
         localStorage.setItem('diaries', JSON.stringify(diaries));
-
-        // DiaryUnlocked 페이지로 이동
-        router.push('/diary-unlocked');
     };
 
     return (
@@ -70,7 +65,7 @@ export default function NewDiaryPage() {
             <Link
                 href='/diary/success/diaryunlocked'
                 onClick={handleSave}
-                className=' button-custom1 btnLightBlue btnPush'
+                className='button-custom1 btnLightBlue btnPush'
             >
                 저장
             </Link>

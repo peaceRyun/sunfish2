@@ -1,12 +1,11 @@
 import React from 'react';
-import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/header/Header';
 import Main from '@/components/layout/Main';
 
 const NewDiaryLayout = ({ children }) => {
     return (
         <>
-            <Header type='type2' />
+            <Header type='type3' />
             <Main>{children}</Main>
         </>
     );
