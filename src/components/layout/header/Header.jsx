@@ -34,8 +34,8 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                 return (
                     <header className='max-w-sm mx-auto fixed top-0 left-0 right-0 z-50 bg-white-700 backdrop-blur-md flex items-center h-20'>
                         <Container size='full' className='flex justify-between items-center'>
-                            <div aria-label='Global' className='flex items-center justify-between lg:px-8 w-full'>
-                                <h1 className='flex lg:flex-1'>
+                            <div aria-label='Global' className='flex items-center justify-between w-full'>
+                                <h1 className='flex'>
                                     <Link href='/'>
                                         <span className='sr-only'>Your Company</span>
                                         <Flex justify='space-between' align='center' gap='8px'>
@@ -55,7 +55,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                         </Flex>
                                     </Link>
                                 </h1>
-                                <div className='flex lg:hidden'>
+                                <div className='flex'>
                                     <button
                                         type='button'
                                         onClick={() => setMobileMenuOpen(true)}
@@ -65,7 +65,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                         <Bars3Icon aria-hidden='true' className='size-6' />
                                     </button>
                                 </div>
-                                <nav className='hidden lg:flex lg:gap-x-12'>
+                                <nav className='hidden'>
                                     {navigation.map((item) => (
                                         <a
                                             key={item.name}
@@ -76,13 +76,13 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                         </a>
                                     ))}
                                 </nav>
-                                <div className='hidden lg:flex lg:flex-1 lg:justify-end'>
+                                <div className='hidden'>
                                     <a href='/login' className='text-sm/6 font-semibold text-gray-900'>
                                         Log in <span aria-hidden='true'>&rarr;</span>
                                     </a>
                                 </div>
                             </div>
-                            <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className='lg:hidden'>
+                            <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen}>
                                 <div className='fixed inset-0 z-50' />
                                 <DialogPanel className='fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10'>
                                     <div className='flex items-center justify-between'>
