@@ -15,26 +15,31 @@ import {
 import { Angry, Annoyed, Frown, Meh, Smile } from 'lucide-react';
 
 const moodIcons = [
-    { icon: Smile, fill: 'lightgreen' },
-    { icon: Angry, fill: 'tomato' },
-    { icon: Frown, fill: '#4892E0' },
-    { icon: Annoyed, fill: '#e0d648' },
-    { icon: Meh, fill: 'lightgray' },
+    { name: 'Smile', Component: Smile, fill: 'lightgreen' },
+    { name: 'Angry', Component: Angry, fill: 'tomato' },
+    { name: 'Frown', Component: Frown, fill: '#4892E0' },
+    { name: 'Annoyed', Component: Annoyed, fill: '#e0d648' },
+    { name: 'Meh', Component: Meh, fill: 'lightgray' },
 ];
-
-function BasicModal({ MoodIcon = Smile, fill }) {
+function BasicModal({ onMoodSelect }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const [selectedMood, setSelectedMood] = useState({ icon: Smile, fill: 'lightgreen' });
+    const [selectedMood, setSelectedMood] = useState(moodIcons[0]);
 
-    const handleMoodSelect = (icon, fill) => {
-        setSelectedMood({ icon: icon, fill: fill });
+    const handleMoodSelect = (mood) => {
+        setSelectedMood(mood);
+        onMoodSelect({
+            name: mood.name,
+            fill: mood.fill,
+        });
         onClose();
     };
+
+    const SelectedIcon = selectedMood.Component;
 
     return (
         <>
             <Button variant='plain' onClick={onOpen} className='w-12 h-12 p-0'>
-                <selectedMood.icon fill={selectedMood.fill} />
+                {React.createElement(selectedMood.Component, { fill: selectedMood.fill })}
             </Button>
 
             <Modal isOpen={isOpen} onClose={onClose} size='xs'>
@@ -52,17 +57,24 @@ function BasicModal({ MoodIcon = Smile, fill }) {
 
                     <ModalBody className='p-2'>
                         <Grid templateRows='repeat(1, 1fr)' templateColumns='repeat(5, 1fr)' gap={1}>
-                            {moodIcons.map((mood, index) => (
-                                <GridItem key={index} className='text-center'>
-                                    <Button
-                                        variant='plain'
-                                        className='p-0 hover:bg-gray-100 rounded-full'
-                                        onClick={() => handleMoodSelect(mood.icon, mood.fill)}
-                                    >
-                                        <mood.icon fill={mood.fill} width='36px' height='36px' />
-                                    </Button>
-                                </GridItem>
-                            ))}
+                            {moodIcons.map((mood, index) => {
+                                const Icon = mood.Component;
+                                return (
+                                    <GridItem key={index} className='text-center'>
+                                        <Button
+                                            variant='plain'
+                                            className='p-0 hover:bg-gray-100 rounded-full'
+                                            onClick={() => handleMoodSelect(mood)}
+                                        >
+                                            {React.createElement(mood.Component, {
+                                                fill: mood.fill,
+                                                width: '36px',
+                                                height: '36px',
+                                            })}
+                                        </Button>
+                                    </GridItem>
+                                );
+                            })}
                         </Grid>
                     </ModalBody>
                 </ModalContent>

@@ -10,6 +10,7 @@ import CalendarModal from './components/CalendarModal';
 export default function NewDiaryPage() {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
+    const [selectedMood, setSelectedMood] = useState(null);
 
     const handleChangeTitle = (event) => {
         setTitle(event.target.value);
@@ -19,10 +20,19 @@ export default function NewDiaryPage() {
         setText(event.target.value);
     };
 
+    const handleMoodSelect = (mood) => {
+        setSelectedMood(mood);
+    };
+
     const handleSave = () => {
         // 로컬 스토리지에 데이터 저장
         const diaries = JSON.parse(localStorage.getItem('diaries') || '[]');
-        diaries.push({ title, text, date: new Date().toISOString() });
+        diaries.push({
+            title,
+            text,
+            date: new Date().toISOString(),
+            mood: selectedMood,
+        });
         localStorage.setItem('diaries', JSON.stringify(diaries));
     };
 
@@ -40,7 +50,7 @@ export default function NewDiaryPage() {
                     <Flex gap='2' align='end'>
                         <CalendarModal />
                     </Flex>
-                    <MoodModal fill='lightgreen' />
+                    <MoodModal onMoodSelect={handleMoodSelect} />
                 </Flex>
 
                 <input

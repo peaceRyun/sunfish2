@@ -3,9 +3,17 @@
 import { Box, Flex } from '@chakra-ui/react';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { Angry, Annoyed, CirclePlus, Frown, Smile } from 'lucide-react';
+import { Angry, Annoyed, CirclePlus, Frown, Smile, Meh } from 'lucide-react';
 import DiaryCard from './components/DiaryCard';
 import Link from 'next/link';
+
+const moodIconMap = {
+    Smile: Smile,
+    Angry: Angry,
+    Frown: Frown,
+    Annoyed: Annoyed,
+    Meh: Meh,
+};
 
 const DiaryUnlockedPage = () => {
     const [diaries, setDiaries] = useState([]);
@@ -40,9 +48,18 @@ const DiaryUnlockedPage = () => {
                 <DiaryCard MoodIcon={Angry} fill='tomato' />
                 <DiaryCard MoodIcon={Frown} fill='#4892E0' />
                 <DiaryCard MoodIcon={Annoyed} fill='#e0d648' />
-                {diaries.map((diary, index) => (
-                    <DiaryCard key={index} title={diary.title} text={diary.text} />
-                ))}
+                {diaries.map((diary, index) => {
+                    const MoodIcon = moodIconMap[diary.mood.name];
+                    return (
+                        <DiaryCard
+                            key={index}
+                            MoodIcon={MoodIcon}
+                            fill={diary.mood.fill}
+                            title={diary.title}
+                            text={diary.text}
+                        />
+                    );
+                })}
             </Flex>
             <Box className='fixed bottom-20 left-1/2 -translate-x-1/2'>
                 <Link href='/diary/success/diaryunlocked/newdiary'>
