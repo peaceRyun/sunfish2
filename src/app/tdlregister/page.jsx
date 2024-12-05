@@ -41,6 +41,36 @@ export default function TdlRegisterPage() {
         onChange: console.log,
     });
     const group2 = getRootProps2();
+
+    //step 3 input & textarea
+    //input
+    const [value, setValue] = useState('');
+    const [isInvalid, setIsInvalid] = useState(true);
+
+    const handleChange = (event) => {
+        const inputValue = event.target.value;
+        setValue(inputValue);
+        setIsInvalid(inputValue.length === 0);
+    };
+    //textarea
+    const [valueText, setValueText] = useState('');
+    const [isInvalidText, setIsInvalidText] = useState(true);
+
+    const handleChangeText = (event) => {
+        const textAreaValue = event.target.value;
+        setValueText(textAreaValue);
+        setIsInvalidText(textAreaValue.length === 0);
+    };
+    //title
+    const [valueTitle, setValueTitle] = useState('');
+    const [isInvalidTitle, setIsInvalidTitle] = useState(true);
+
+    const handleChangeTitle = (event) => {
+        const textAreaValue = event.target.value;
+        setValueTitle(textAreaValue);
+        setIsInvalidTitle(textAreaValue.length === 0);
+    };
+
     //step 관련
     const handleNext = () => {
         // if (currentStep === 0 && !emailError && email) {
@@ -124,17 +154,29 @@ export default function TdlRegisterPage() {
                         <div className='overflow-hidden rounded-full bg-gray-200'>
                             <div
                                 style={{ width: `${progressPercentage}%` }}
-                                className='h-2 rounded-full bg-indigo-600 transition-all duration-300'
+                                className='h-2 rounded-full bg-custom-deepsea-500 transition-all duration-300'
                             />
                         </div>
                         <div className='mt-6 grid grid-cols-3 text-sm font-medium text-gray-600'>
-                            <div className={`text-center ${currentStep >= 0 ? 'text-indigo-600' : 'text-gray-400'}`}>
+                            <div
+                                className={`text-center ${
+                                    currentStep >= 0 ? 'text-custom-deepsea-500' : 'text-gray-400'
+                                }`}
+                            >
                                 Step 1
                             </div>
-                            <div className={`text-center ${currentStep >= 1 ? 'text-indigo-600' : 'text-gray-400'}`}>
+                            <div
+                                className={`text-center ${
+                                    currentStep >= 1 ? 'text-custom-deepsea-500' : 'text-gray-400'
+                                }`}
+                            >
                                 Step 2
                             </div>
-                            <div className={`text-center ${currentStep >= 2 ? 'text-indigo-600' : 'text-gray-400'}`}>
+                            <div
+                                className={`text-center ${
+                                    currentStep >= 2 ? 'text-custom-deepsea-500' : 'text-gray-400'
+                                }`}
+                            >
                                 Step 3
                             </div>
                         </div>
@@ -182,17 +224,36 @@ export default function TdlRegisterPage() {
                             <div>
                                 <Stack spacing={4} p='20px'>
                                     <InputGroup>
-                                        <InputLeftAddon>제목</InputLeftAddon>
-                                        <Input type='tel' placeholder='전광판에 보이지는 않아요!' />
+                                        <InputLeftAddon className='bg-custom-deepsea-500 text-white'>
+                                            제목
+                                        </InputLeftAddon>
+                                        <Input
+                                            value={valueTitle}
+                                            onChange={handleChangeTitle}
+                                            isInvalid={isInvalidTitle}
+                                            placeholder='전광판에 보이지는 않아요!'
+                                        />
                                     </InputGroup>
 
                                     {/* If you add the size prop to `InputGroup`, it'll pass it to all its children. */}
                                     <InputGroup size='sm'>
-                                        <InputLeftAddon>지시한 사람</InputLeftAddon>
-                                        <Input placeholder='직책을 적어주세요!' />
+                                        <InputLeftAddon className='bg-custom-deepsea-500 text-white'>
+                                            지시한 사람
+                                        </InputLeftAddon>
+                                        <Input
+                                            value={value}
+                                            onChange={handleChange}
+                                            isInvalid={isInvalid}
+                                            placeholder='직책을 적어주세요!'
+                                        />
                                     </InputGroup>
 
-                                    <Textarea isInvalid placeholder='내용을 적어주세요' />
+                                    <Textarea
+                                        value={valueText}
+                                        onChange={handleChangeText}
+                                        isInvalid={isInvalidText}
+                                        placeholder='내용을 적어주세요'
+                                    />
                                 </Stack>
                             </div>
                         )}
@@ -215,7 +276,7 @@ export default function TdlRegisterPage() {
                             className={`px-4 py-2 rounded-md font-medium ${
                                 currentStep === 0
                                     ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
-                                    : 'bg-blue-600 text-white hover:bg-blue-700'
+                                    : 'bg-custom-deepsea-500 text-white hover:bg-custom-deepsea-600'
                             }`}
                             onClick={handlePrev}
                             disabled={currentStep === 0}
@@ -229,14 +290,14 @@ export default function TdlRegisterPage() {
                                 // (currentStep === 2 && !(termsChecked.term1 && termsChecked.term2))
                                 false
                                     ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
-                                    : 'bg-blue-600 text-white hover:bg-blue-700'
+                                    : 'bg-custom-deepsea-500 text-white hover:bg-custom-deepsea-600'
                             }`}
                             onClick={handleNext}
-                            // disabled={
-                            //     (currentStep === 0 && (!email || emailError)) ||
-                            //     (currentStep === 1 && (!password || passwordError)) ||
-                            //     (currentStep === 2 && !(termsChecked.term1 && termsChecked.term2))
-                            // }
+                            disabled={
+                                //     (currentStep === 0 && (!email || emailError)) ||
+                                //     (currentStep === 1 && (!password || passwordError)) ||
+                                currentStep === 2 && !(value && valueText && valueTitle)
+                            }
                         >
                             {currentStep === 2 ? '완료' : '다음'}
                         </button>

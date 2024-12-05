@@ -34,6 +34,10 @@ module.exports = {
                     50: '#E6FFFA',
                     600: '#00A3C4',
                 },
+                'custom-deepsea': {
+                    500: '#04B2D9',
+                    600: '#049DD9',
+                },
             },
         },
     },

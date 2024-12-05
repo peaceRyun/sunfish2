@@ -12,21 +12,40 @@ const RadioCard = (props) => {
             <Box
                 {...checkbox}
                 cursor='pointer'
-                borderWidth='1px'
-                borderRadius='md'
-                boxShadow='md'
+                borderWidth='2px'
+                borderRadius='full'
+                transition='all 0.3s ease'
+                position='relative'
+                overflow='hidden'
+                _before={{
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: '#04B2D9',
+                    opacity: 0,
+                    transition: 'opacity 0.3s ease',
+                }}
                 _checked={{
-                    bg: 'teal.600',
-                    color: 'white',
-                    borderColor: 'teal.600',
+                    borderColor: 'transparent',
+                    _before: {
+                        opacity: 1,
+                    },
+                    _hover: {
+                        transform: 'scale(1.05)',
+                    },
                 }}
-                _focus={{
-                    boxShadow: 'outline',
+                _hover={{
+                    boxShadow: 'lg',
                 }}
-                px={5}
-                py={3}
+                px={6}
+                py={4}
             >
-                {props.children}
+                <Box position='relative' zIndex={1} color={checkbox.isChecked ? 'white' : 'inherit'}>
+                    {props.children}
+                </Box>
             </Box>
         </Box>
     );
