@@ -287,8 +287,7 @@ export default function TdlRegisterPage() {
                             className={`px-4 py-2 rounded-md font-medium ${
                                 // (currentStep === 0 && (!email || emailError)) ||
                                 // (currentStep === 1 && (!password || passwordError)) ||
-                                // (currentStep === 2 && !(termsChecked.term1 && termsChecked.term2))
-                                false
+                                currentStep === 2 && !(value && valueText && valueTitle)
                                     ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
                                     : 'bg-custom-deepsea-500 text-white hover:bg-custom-deepsea-600'
                             }`}
