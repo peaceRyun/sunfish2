@@ -68,13 +68,6 @@ export default function TdlRegisterPage() {
 
     //step 관련
     const handleNext = () => {
-        // if (currentStep === 0 && !emailError && email) {
-        //     setCurrentStep(currentStep + 1);
-        // } else if (currentStep === 1 && !passwordError && password) {
-        //     setCurrentStep(currentStep + 1);
-        // } else if (currentStep === 2 && termsChecked.term1 && termsChecked.term2) {
-        //     setCurrentStep(currentStep + 1);
-        // }
         if (currentStep === 0) {
             setCurrentStep(currentStep + 1);
         } else if (currentStep === 1) {
@@ -82,9 +75,16 @@ export default function TdlRegisterPage() {
         } else if (currentStep === 2) {
             setCurrentStep(currentStep + 1);
             const eboarddata = JSON.parse(localStorage.getItem('eboarddata') || '[]');
-            eboarddata.push({
-                valueText,
-            });
+            const newData = {
+                id: Date.now(), // 고유 ID 추가
+                // period: group1.value, // 기간 정보
+                // priority: group2.value, // 우선순위 정보
+                title: valueTitle,
+                // assignedBy: value, // 지시한 사람
+                valueText: valueText, // 내용
+                // createdAt: new Date().toISOString(),
+            };
+            eboarddata.push(newData);
             localStorage.setItem('eboarddata', JSON.stringify(eboarddata));
         }
     };

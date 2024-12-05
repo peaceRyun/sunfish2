@@ -15,11 +15,25 @@ import { Box } from '@chakra-ui/react';
 
 export function LEDBoardsSwiperDaily() {
     const [eboardData, setEboardData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const storedEboardData = JSON.parse(localStorage.getItem('eboarddata') || '[]');
-        setEboardData(storedEboardData);
+        try {
+            const storedEboardData = JSON.parse(localStorage.getItem('eboarddata') || '[]');
+            setEboardData(storedEboardData);
+        } catch (error) {
+            console.error('데이터 로드 중 오류 발생:', error);
+        } finally {
+            setIsLoading(false);
+        }
     }, []);
+
+    if (isLoading) {
+        return <Box>로딩 중...</Box>;
+    }
+    if (!eboardData || eboardData.length === 0) {
+        return <Box>오늘의 할 일이 없습니다.</Box>;
+    }
 
     return (
         <>
@@ -35,11 +49,13 @@ export function LEDBoardsSwiperDaily() {
                 modules={[Autoplay]}
                 className='LEDBoardsSwiperDaily !h-10 font-custom1 flex flex-col justify-center'
             >
-                <SwiperSlide style={{ display: 'flex', alignItems: 'center' }}>
-                    <Box width='100%' textAlign='center'>
-                        {eboardData[1].valueText}부터 시작하면 됩니다!
-                    </Box>
-                </SwiperSlide>
+                {eboardData.map((item) => (
+                    <SwiperSlide key={item.id} style={{ display: 'flex', alignItems: 'center' }}>
+                        <Box width='100%' textAlign='center'>
+                            {item.valueText}
+                        </Box>
+                    </SwiperSlide>
+                ))}
                 <SwiperSlide style={{ display: 'flex', alignItems: 'center' }}>
                     <Box width='100%' textAlign='center'>
                         000을 첫 번째로 해보시죠.
