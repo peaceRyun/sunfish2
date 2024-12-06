@@ -15,6 +15,7 @@ import { useEffect, useState } from 'react';
 import RadioCard from './components/RadioCard';
 import InputError from '@/components/pattern/form/InputError';
 import Link from 'next/link';
+import ArrowMatrix from './components/ArrowMatrix';
 
 export default function TdlRegisterPage() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -34,10 +35,10 @@ export default function TdlRegisterPage() {
 
     //step 2 radio 버튼
     const optionsTwo = [
-        '중요하지만 급하지 않음',
-        '중요하고 급합',
-        '급하지 않거나 중요하지 않음',
-        '급하지만 중요하지 않음',
+        '중요하지만\n급하지 않음',
+        '중요하고\n급함',
+        '급하지 않거나\n중요하지 않음',
+        '급하지만\n중요하지 않음',
     ];
     const { getRootProps: getRootProps2, getRadioProps: getRadioProps2 } = useRadioGroup({
         name: 'priority',
@@ -149,7 +150,8 @@ export default function TdlRegisterPage() {
                             </div>
                         )}
                         {currentStep === 1 && (
-                            <div>
+                            <div className='w-80 m-auto'>
+                                <ArrowMatrix />
                                 <Grid
                                     w='100%'
                                     h='100%'
@@ -217,7 +219,7 @@ export default function TdlRegisterPage() {
 
             {/* Navigation Buttons */}
             {currentStep <= 2 && (
-                <div className='bottom-0 left-0 right-0'>
+                <div className='bottom-0 left-0 right-0 z-10'>
                     <div className='flex justify-between p-4 bg-white border-t'>
                         <button
                             className={`px-4 py-2 rounded-md font-medium ${

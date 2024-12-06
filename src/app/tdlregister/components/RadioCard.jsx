@@ -8,16 +8,16 @@ const RadioCard = (props) => {
 
     const getBackgroundColor = (value) => {
         switch (value) {
-            case '중요하지만 급하지 않음':
-                return '#2ECC71'; // 초록색
-            case '중요하고 급합':
-                return '#E74C3C'; // 빨간색
-            case '급하지 않거나 중요하지 않음':
-                return '#95A5A6'; // 회색
-            case '급하지만 중요하지 않음':
-                return '#F1C40F'; // 노란색
+            case '중요하지만\n급하지 않음':
+                return '#2ECC71';
+            case '중요하고\n급함':
+                return '#E74C3C';
+            case '급하지 않거나\n중요하지 않음':
+                return '#95A5A6';
+            case '급하지만\n중요하지 않음':
+                return '#F1C40F';
             default:
-                return '#04B2D9'; // 기본색
+                return '#04B2D9';
         }
     };
 
@@ -32,6 +32,9 @@ const RadioCard = (props) => {
                 transition='all 0.3s ease'
                 position='relative'
                 overflow='hidden'
+                fontSize='14px'
+                whiteSpace='pre-wrap' //
+                wordBreak='keep-all' //한글 단위로 줄바꿈
                 _before={{
                     content: '""',
                     position: 'absolute',
@@ -56,7 +59,12 @@ const RadioCard = (props) => {
                 py={4}
             >
                 <Box position='relative' zIndex={1} color={checkbox.isChecked ? 'white' : 'inherit'}>
-                    {props.children}
+                    {props.children.split('\n').map((text, index) => (
+                        <span key={index}>
+                            {index > 0 && <br />}
+                            {text}
+                        </span>
+                    ))}
                 </Box>
             </Box>
         </Box>
