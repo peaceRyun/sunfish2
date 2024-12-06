@@ -118,21 +118,24 @@ export default function TdlRegisterPage() {
                                     currentStep >= 0 ? 'text-custom-deepsea-500' : 'text-gray-400'
                                 }`}
                             >
-                                Step 1. 기간
+                                Step 1. <br />
+                                기간
                             </div>
                             <div
                                 className={`text-center ${
                                     currentStep >= 1 ? 'text-custom-deepsea-500' : 'text-gray-400'
                                 }`}
                             >
-                                Step 2. 우선순위
+                                Step 2. <br />
+                                우선순위
                             </div>
                             <div
                                 className={`text-center ${
                                     currentStep >= 2 ? 'text-custom-deepsea-500' : 'text-gray-400'
                                 }`}
                             >
-                                Step 3. 전광판 등록
+                                Step 3. <br />
+                                전광판 등록
                             </div>
                         </div>
                     </div>
@@ -202,7 +205,7 @@ export default function TdlRegisterPage() {
                                             maxLength={CHARACTER_LIMIT}
                                         />
                                         {!(isSubmitAttempted && valueText === '') ? (
-                                            <FormHelperText>
+                                            <FormHelperText className='text-left'>
                                                 전광판에 표시될 내용을 입력합니다. ({valueText.length}/{CHARACTER_LIMIT}
                                                 자)
                                             </FormHelperText>
