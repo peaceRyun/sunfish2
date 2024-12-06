@@ -3,13 +3,13 @@
 import { Flex, SimpleGrid } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import FoodItem from './components/FoodItem';
-import { foodlist } from '@/data/foodlistData';
+import { sadfoodlist } from '@/data/foodlistData';
 
 const SadPage = () => {
     const [search, setSearch] = useState('');
 
     const filterFoods = () => {
-        return foodlist.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
+        return sadfoodlist.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
     };
 
     return (

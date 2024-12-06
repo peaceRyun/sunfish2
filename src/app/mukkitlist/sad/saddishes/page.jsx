@@ -2,14 +2,13 @@
 
 import React from 'react';
 import { Flex } from '@chakra-ui/react';
-import DropDown from './components/DropDown';
+import AccordionFood from './components/Accordion';
 
 const SadDishesPage = () => {
     return (
         <>
             <Flex direction='column' gap='1' p='80px 20px'>
-                <DropDown />
-                <DropDown />
+                <AccordionFood />
             </Flex>
         </>
     );
