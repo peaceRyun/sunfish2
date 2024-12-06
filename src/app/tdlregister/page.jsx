@@ -1,23 +1,27 @@
 'use client';
 
 import {
+    FormControl,
+    FormErrorMessage,
+    FormHelperText,
+    FormLabel,
     Grid,
-    HStack,
-    Input,
-    InputGroup,
-    InputLeftAddon,
-    InputRightAddon,
     Stack,
     Textarea,
     useRadioGroup,
     VStack,
 } from '@chakra-ui/react';
-import { ExclamationCircleIcon } from '@heroicons/react/24/outline';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import RadioCard from './components/RadioCard';
+import InputError from '@/components/pattern/form/InputError';
+import Link from 'next/link';
 
 export default function TdlRegisterPage() {
     const [currentStep, setCurrentStep] = useState(0);
+    const [titleValue, setTitleValue] = useState('');
+    const [assignedByValue, setAssignedByValue] = useState('');
+    const [valueText, setValueText] = useState('');
+    const [isSubmitAttempted, setIsSubmitAttempted] = useState(false);
 
     //step 1 radio 버튼
     const options = ['오늘까지', '이번주 0요일까지', '이번 달까지'];
@@ -43,54 +47,44 @@ export default function TdlRegisterPage() {
     const group2 = getRootProps2();
 
     //step 3 input & textarea
-    //input
-    const [value, setValue] = useState('');
-    const [isInvalid, setIsInvalid] = useState(true);
-
-    const handleChange = (event) => {
-        const inputValue = event.target.value;
-        setValue(inputValue);
-        setIsInvalid(inputValue.length === 0);
-    };
-    //textarea
-    const [valueText, setValueText] = useState('');
-    const [isInvalidText, setIsInvalidText] = useState(true);
-
     const handleChangeText = (event) => {
-        const textAreaValue = event.target.value;
-        setValueText(textAreaValue);
-        setIsInvalidText(textAreaValue.length === 0);
+        setValueText(event.target.value);
     };
-    //title
-    const [valueTitle, setValueTitle] = useState('');
-    const [isInvalidTitle, setIsInvalidTitle] = useState(true);
 
-    const handleChangeTitle = (event) => {
-        const textAreaValue = event.target.value;
-        setValueTitle(textAreaValue);
-        setIsInvalidTitle(textAreaValue.length === 0);
-    };
+    //step 4 완료 문구 3초간 보여주기
+    useEffect(() => {
+        if (currentStep === 3) {
+            const timer = setTimeout(() => {
+                window.location.href = '/';
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [currentStep]);
 
     //step 관련
     const handleNext = () => {
-        if (currentStep === 0) {
-            setCurrentStep(currentStep + 1);
-        } else if (currentStep === 1) {
-            setCurrentStep(currentStep + 1);
-        } else if (currentStep === 2) {
-            setCurrentStep(currentStep + 1);
+        if (currentStep === 2) {
+            setIsSubmitAttempted(true);
+
+            // 유효성 검사
+            const isValid = titleValue && assignedByValue && valueText;
+            if (!isValid) {
+                return;
+            }
+
+            // 데이터 저장 및 다음 단계
             const eboarddata = JSON.parse(localStorage.getItem('eboarddata') || '[]');
             const newData = {
-                id: Date.now(), // 고유 ID 추가
-                // period: group1.value, // 기간 정보
-                // priority: group2.value, // 우선순위 정보
-                title: valueTitle,
-                // assignedBy: value, // 지시한 사람
-                valueText: valueText, // 내용
-                // createdAt: new Date().toISOString(),
+                id: Date.now(),
+                title: titleValue,
+                assignedBy: assignedByValue,
+                valueText: valueText,
             };
             eboarddata.push(newData);
             localStorage.setItem('eboarddata', JSON.stringify(eboarddata));
+            setCurrentStep(currentStep + 1);
+        } else {
+            setCurrentStep(currentStep + 1);
         }
     };
 
@@ -179,37 +173,33 @@ export default function TdlRegisterPage() {
                         {currentStep === 2 && (
                             <div>
                                 <Stack spacing={4} p='20px'>
-                                    <InputGroup>
-                                        <InputLeftAddon className='bg-custom-deepsea-500 text-white'>
-                                            제목
-                                        </InputLeftAddon>
-                                        <Input
-                                            value={valueTitle}
-                                            onChange={handleChangeTitle}
-                                            isInvalid={isInvalidTitle}
-                                            placeholder='전광판에 보이지는 않아요!'
-                                        />
-                                    </InputGroup>
-
-                                    {/* If you add the size prop to `InputGroup`, it'll pass it to all its children. */}
-                                    <InputGroup size='sm'>
-                                        <InputLeftAddon className='bg-custom-deepsea-500 text-white'>
-                                            지시한 사람
-                                        </InputLeftAddon>
-                                        <Input
-                                            value={value}
-                                            onChange={handleChange}
-                                            isInvalid={isInvalid}
-                                            placeholder='직책을 적어주세요!'
-                                        />
-                                    </InputGroup>
-
-                                    <Textarea
-                                        value={valueText}
-                                        onChange={handleChangeText}
-                                        isInvalid={isInvalidText}
-                                        placeholder='내용을 적어주세요'
+                                    <InputError
+                                        label='제목'
+                                        type='text'
+                                        isSubmit={isSubmitAttempted}
+                                        value={titleValue}
+                                        onChange={setTitleValue}
                                     />
+                                    <InputError
+                                        label='지시한 사람'
+                                        type='text'
+                                        isSubmit={isSubmitAttempted}
+                                        value={assignedByValue}
+                                        onChange={setAssignedByValue}
+                                    />
+                                    <FormControl isInvalid={isSubmitAttempted && valueText === ''}>
+                                        <FormLabel>내용</FormLabel>
+                                        <Textarea
+                                            value={valueText}
+                                            onChange={handleChangeText}
+                                            placeholder='내용을 적어주세요'
+                                        />
+                                        {!(isSubmitAttempted && valueText === '') ? (
+                                            <FormHelperText>전광판에 표시될 내용을 입력합니다.</FormHelperText>
+                                        ) : (
+                                            <FormErrorMessage>내용이 필요합니다.</FormErrorMessage>
+                                        )}
+                                    </FormControl>
                                 </Stack>
                             </div>
                         )}
@@ -221,6 +211,7 @@ export default function TdlRegisterPage() {
                 <div className='mt-4 text-center text-green-600 font-semibold flex flex-col justify-center items-center'>
                     <div>🎉</div>
                     등록이 완료되었습니다!
+                    <div className='mt-2 text-sm text-gray-500'>잠시 후 홈으로 이동합니다...</div>
                 </div>
             )}
 
@@ -240,19 +231,8 @@ export default function TdlRegisterPage() {
                             이전
                         </button>
                         <button
-                            className={`px-4 py-2 rounded-md font-medium ${
-                                // (currentStep === 0 && (!email || emailError)) ||
-                                // (currentStep === 1 && (!password || passwordError)) ||
-                                currentStep === 2 && !(value && valueText && valueTitle)
-                                    ? 'bg-gray-300 text-gray-600 cursor-not-allowed'
-                                    : 'bg-custom-deepsea-500 text-white hover:bg-custom-deepsea-600'
-                            }`}
+                            className={`px-4 py-2 rounded-md font-medium bg-custom-deepsea-500 text-white hover:bg-custom-deepsea-600`}
                             onClick={handleNext}
-                            disabled={
-                                //     (currentStep === 0 && (!email || emailError)) ||
-                                //     (currentStep === 1 && (!password || passwordError)) ||
-                                currentStep === 2 && !(value && valueText && valueTitle)
-                            }
                         >
                             {currentStep === 2 ? '완료' : '다음'}
                         </button>
