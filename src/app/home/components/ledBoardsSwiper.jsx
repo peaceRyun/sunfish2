@@ -29,10 +29,10 @@ export function LEDBoardsSwiperDaily() {
     }, []);
 
     if (isLoading) {
-        return <Box>로딩 중...</Box>;
+        return <Box textAlign='center'>로딩 중...</Box>;
     }
     if (!eboardData || eboardData.length === 0) {
-        return <Box>오늘의 할 일이 없습니다.</Box>;
+        return <Box textAlign='center'>오늘의 할 일이 없습니다.</Box>;
     }
 
     return (
@@ -40,7 +40,7 @@ export function LEDBoardsSwiperDaily() {
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
-                direction='vertical'
+                direction='horizontal'
                 autoplay={{
                     delay: 2500,
                     disableOnInteraction: false,
@@ -51,17 +51,17 @@ export function LEDBoardsSwiperDaily() {
             >
                 {eboardData.map((item) => (
                     <SwiperSlide key={item.id} style={{ display: 'flex', alignItems: 'center' }}>
-                        <Box width='100%' textAlign='center'>
+                        <Box width='100%' textAlign='center' className='whitespace-nowrap'>
                             {item.valueText}
                         </Box>
                     </SwiperSlide>
                 ))}
-                <SwiperSlide style={{ display: 'flex', alignItems: 'center' }}>
+                <SwiperSlide key='default-1' style={{ display: 'flex', alignItems: 'center' }}>
                     <Box width='100%' textAlign='center'>
                         000을 첫 번째로 해보시죠.
                     </Box>
                 </SwiperSlide>
-                <SwiperSlide style={{ display: 'flex', alignItems: 'center' }}>
+                <SwiperSlide key='default-2' style={{ display: 'flex', alignItems: 'center' }}>
                     <Box width='100%' textAlign='center'>
                         000을 두 번째로 하셔야 합니다.
                     </Box>
