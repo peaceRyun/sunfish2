@@ -29,10 +29,15 @@ export default function TdlRegisterPage() {
     const group1 = getRootProps1();
 
     //step 2 radio 버튼
-    const optionsTwo = ['Now! Hard.', 'Later. Hard.', 'Now! Easy!', 'Later. Easy!'];
+    const optionsTwo = [
+        '중요하지만 급하지 않음',
+        '중요하고 급합',
+        '급하지 않거나 중요하지 않음',
+        '급하지만 중요하지 않음',
+    ];
     const { getRootProps: getRootProps2, getRadioProps: getRadioProps2 } = useRadioGroup({
         name: 'priority',
-        defaultValue: 'Now! Easy!',
+        defaultValue: '중요하고 급합',
         onChange: console.log,
     });
     const group2 = getRootProps2();
@@ -114,21 +119,21 @@ export default function TdlRegisterPage() {
                                     currentStep >= 0 ? 'text-custom-deepsea-500' : 'text-gray-400'
                                 }`}
                             >
-                                Step 1
+                                Step 1. 기간
                             </div>
                             <div
                                 className={`text-center ${
                                     currentStep >= 1 ? 'text-custom-deepsea-500' : 'text-gray-400'
                                 }`}
                             >
-                                Step 2
+                                Step 2. 우선순위
                             </div>
                             <div
                                 className={`text-center ${
                                     currentStep >= 2 ? 'text-custom-deepsea-500' : 'text-gray-400'
                                 }`}
                             >
-                                Step 3
+                                Step 3. 전광판 등록
                             </div>
                         </div>
                     </div>

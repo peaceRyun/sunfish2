@@ -1,7 +1,7 @@
 import React from 'react';
 import Menu from './menu';
-import { Box, Flex, Heading } from '@chakra-ui/react';
-import { LedBoardDaily, LedBoardMonthly, LedBoardWeekly } from './LedBoard';
+import { Flex } from '@chakra-ui/react';
+import { LedBoardDaily } from './LedBoard';
 
 const Home = () => {
     return (

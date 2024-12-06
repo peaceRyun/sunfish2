@@ -6,6 +6,21 @@ const RadioCard = (props) => {
     const input = getInputProps();
     const checkbox = getRadioProps();
 
+    const getBackgroundColor = (value) => {
+        switch (value) {
+            case '중요하지만 급하지 않음':
+                return '#2ECC71'; // 초록색
+            case '중요하고 급합':
+                return '#E74C3C'; // 빨간색
+            case '급하지 않거나 중요하지 않음':
+                return '#95A5A6'; // 회색
+            case '급하지만 중요하지 않음':
+                return '#F1C40F'; // 노란색
+            default:
+                return '#04B2D9'; // 기본색
+        }
+    };
+
     return (
         <Box as='label'>
             <input {...input} />
@@ -24,7 +39,7 @@ const RadioCard = (props) => {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: '#04B2D9',
+                    background: getBackgroundColor(props.value),
                     opacity: 0,
                     transition: 'opacity 0.3s ease',
                 }}
@@ -32,9 +47,6 @@ const RadioCard = (props) => {
                     borderColor: 'transparent',
                     _before: {
                         opacity: 1,
-                    },
-                    _hover: {
-                        transform: 'scale(1.05)',
                     },
                 }}
                 _hover={{
