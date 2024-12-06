@@ -2,7 +2,7 @@ import React from 'react';
 
 const ArrowMatrix = () => {
     return (
-        <div className='absolute top-20 -left-2 w-full h-96 '>
+        <div className='absolute top-20 -left-2 w-96 h-96 '>
             <div className='absolute inset-0 opacity-20'>
                 {/* SVG for arrows */}
                 <svg className='w-full h-full' viewBox='0 0 400 300' fill='none' stroke='currentColor'>
