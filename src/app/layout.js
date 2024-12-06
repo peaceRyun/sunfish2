@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
             <head>
                 <meta charSet='UTF-8' />
                 <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-                <title>next.js themplate</title>
+                <title>sunfish 프로젝트</title>
                 <meta property='og:type' content='website' />
                 <meta property='og:title' content='페이지 제목' />
                 <meta property='og:description' content='페이지 설명' />
