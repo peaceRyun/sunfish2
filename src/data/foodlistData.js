@@ -23,3 +23,24 @@ export const angryfoodlist = [
     { src: '/images/pattern/mukkitlist/menu/고등어.png', name: '고등어' },
     { src: '/images/pattern/mukkitlist/menu/청어.png', name: '청어' },
 ];
+
+export const anxietyfoodlist = [
+    { src: '/images/pattern/mukkitlist/menu/초콜릿.png', name: '다크초콜릿' },
+    { src: '/images/pattern/mukkitlist/menu/견과류.png', name: '견과류' },
+    { src: '/images/pattern/mukkitlist/menu/연어.png', name: '연어' },
+    { src: '/images/pattern/mukkitlist/menu/아보카도.png', name: '아보카도' },
+    { src: '/images/pattern/mukkitlist/menu/피클.png', name: '피클' },
+    { src: '/images/pattern/mukkitlist/menu/카레.png', name: '카레' },
+    { src: '/images/pattern/mukkitlist/menu/베리.png', name: '베리' },
+    { src: '/images/pattern/mukkitlist/menu/감귤류.png', name: '감귤류' },
+];
+
+export const tiredfoodlist = [
+    { src: '/images/pattern/mukkitlist/menu/치아시드.png', name: '치아시드' },
+    { src: '/images/pattern/mukkitlist/menu/바나나.png', name: '바나나' },
+    { src: '/images/pattern/mukkitlist/menu/요거트.png', name: '요거트' },
+    { src: '/images/pattern/mukkitlist/menu/달걀.png', name: '달걀' },
+    { src: '/images/pattern/mukkitlist/menu/귀리.png', name: '귀리' },
+    { src: '/images/pattern/mukkitlist/menu/케일.png', name: '케일' },
+    { src: '/images/pattern/mukkitlist/menu/수박.png', name: '수박' },
+];
