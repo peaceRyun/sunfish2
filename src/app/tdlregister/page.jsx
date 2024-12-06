@@ -23,6 +23,7 @@ export default function TdlRegisterPage() {
     const [assignedByValue, setAssignedByValue] = useState('');
     const [valueText, setValueText] = useState('');
     const [isSubmitAttempted, setIsSubmitAttempted] = useState(false);
+    const CHARACTER_LIMIT = 20;
 
     //step 1 radio 버튼
     const options = ['오늘까지', '이번주 0요일까지', '이번 달까지'];
@@ -49,7 +50,10 @@ export default function TdlRegisterPage() {
 
     //step 3 input & textarea
     const handleChangeText = (event) => {
-        setValueText(event.target.value);
+        const text = event.target.value;
+        if (text.length <= CHARACTER_LIMIT) {
+            setValueText(text);
+        }
     };
 
     //step 4 완료 문구 3초간 보여주기
@@ -194,10 +198,14 @@ export default function TdlRegisterPage() {
                                         <Textarea
                                             value={valueText}
                                             onChange={handleChangeText}
-                                            placeholder='내용을 적어주세요'
+                                            placeholder='내용을 적어주세요 (최대 20자)'
+                                            maxLength={CHARACTER_LIMIT}
                                         />
                                         {!(isSubmitAttempted && valueText === '') ? (
-                                            <FormHelperText>전광판에 표시될 내용을 입력합니다.</FormHelperText>
+                                            <FormHelperText>
+                                                전광판에 표시될 내용을 입력합니다. ({valueText.length}/{CHARACTER_LIMIT}
+                                                자)
+                                            </FormHelperText>
                                         ) : (
                                             <FormErrorMessage>내용이 필요합니다.</FormErrorMessage>
                                         )}
