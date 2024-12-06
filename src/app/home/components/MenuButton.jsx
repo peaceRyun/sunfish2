@@ -27,8 +27,10 @@ const MenuButton = ({ label, bg, bgHover, url }) => {
             textAlign='left'
             _hover={{
                 bg: bgHover,
-                transform: 'scale(1.02)',
                 boxShadow: '0 0 15px rgba(255, 255, 255, 0.2)',
+                _after: {
+                    transform: 'scale(1.1)',
+                },
             }}
             _before={{
                 content: '""',
@@ -51,6 +53,7 @@ const MenuButton = ({ label, bg, bgHover, url }) => {
                 bgPosition: 'right',
                 borderRadius: 'md',
                 zIndex: -1,
+                transition: 'transform 0.3s ease',
             }}
         >
             {label}
