@@ -21,7 +21,12 @@ const EncyclopediaPage = () => {
 
     return (
         <>
-            <div className="bg-[url('/images/pattern/encyclopeida/beach1.jfif')] bg-cover bg-center bg-no-repeat w-full min-h-screen relative">
+            <div
+                className="bg-[url('/images/pattern/main/화이트책배경.png')] bg-cover bg-center bg-no-repeat w-full min-h-screen relative"
+                style={{
+                    backgroundAttachment: 'fixed',
+                }}
+            >
                 <Flex gap='8' direction='column' p='80px 20px'>
                     <Heading>증상별 Encyclopedia</Heading>
                     <Flex gap='4' direction='column'>

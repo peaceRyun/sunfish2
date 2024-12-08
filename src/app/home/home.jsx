@@ -6,7 +6,13 @@ import { LedBoardDaily } from './LedBoard';
 const Home = () => {
     return (
         <>
-            <div className=' min-h-screen w-full relative'>
+            <div
+                className='bg-cover bg-center bg-no-repeat min-h-screen w-full relative'
+                style={{
+                    backgroundImage: 'url(/images/pattern/main/파랑그라데이션.png)',
+                    backgroundAttachment: 'fixed',
+                }}
+            >
                 <Flex gap='4' direction='column' p='100px 20px 20px'>
                     <Flex gap='4' direction='column'>
                         <LedBoardDaily />
