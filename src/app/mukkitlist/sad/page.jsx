@@ -23,7 +23,7 @@ const SadPage = () => {
                         setSearch(e.target.value);
                     }}
                 />
-                <SimpleGrid as='ul' columns={[3, null, null, 4]} gap='40px'>
+                <SimpleGrid as='ul' columns={[3, null, null, 4]} gap='4px'>
                     {filterFoods().map((item, index) => (
                         <FoodItem key={index} {...item} />
                     ))}

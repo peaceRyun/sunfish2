@@ -15,7 +15,7 @@ const FoodItem = ({ src, name }) => {
                         gap='5px'
                         justify='center'
                         align='center'
-                        className='w-20 h-20 rounded-3xl bg-gray-200 mx-auto'
+                        className='w-full h-20 rounded-3xl bg-gray-200 mx-auto'
                     >
                         <Image src={src} alt='#' width='60' height='60' />
                     </Flex>
