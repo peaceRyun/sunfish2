@@ -14,6 +14,7 @@ const Menu = () => {
                 height='360px'
                 width='100%'
                 p='0'
+                className='font-custom2'
             >
                 <GridItem rowSpan={1} colSpan={2}>
                     <Link href='/tdlregister' style={{ display: 'block', height: '100%' }}>
