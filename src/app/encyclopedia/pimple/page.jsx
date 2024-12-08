@@ -10,7 +10,10 @@ const PimplePage = () => {
                 direction='column'
                 gap='3'
                 p='80px 20px'
-                className="bg-[url('/images/pattern/encyclopeida/beach1.jfif')] bg-cover bg-center bg-no-repeat w-full min-h-screen relative"
+                className="bg-[url('/images/pattern/main/화이트책배경.png')] bg-cover bg-center bg-no-repeat w-full min-h-screen relative"
+                style={{
+                    backgroundAttachment: 'fixed',
+                }}
             >
                 <Flex
                     direction='column'

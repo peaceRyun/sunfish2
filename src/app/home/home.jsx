@@ -9,7 +9,7 @@ const Home = () => {
             <div
                 className='bg-cover bg-center bg-no-repeat min-h-screen w-full relative'
                 style={{
-                    backgroundImage: 'url(/images/pattern/main/파랑그라데이션.png)',
+                    backgroundImage: 'url(/images/pattern/main/투명화면1.png)',
                     backgroundAttachment: 'fixed',
                 }}
             >
