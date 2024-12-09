@@ -44,3 +44,16 @@ export const tiredfoodlist = [
     { src: '/images/pattern/mukkitlist/menu/케일.png', name: '케일' },
     { src: '/images/pattern/mukkitlist/menu/수박.png', name: '수박' },
 ];
+
+export const colormap = {
+    버섯: 'amber.50',
+    호두: 'orange.50',
+    연어: 'red.50',
+    오리고기: 'red.50',
+    시금치: 'green.50',
+    굴: 'blue.50',
+    초콜릿: 'yellow.50',
+    콩: 'purple.50',
+    카레: 'orange.50',
+    사과: 'red.50',
+};
