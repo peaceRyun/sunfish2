@@ -10,7 +10,6 @@ const SadLayout = ({ children }) => {
         <>
             <Header type='type2' />
             <Main>{children}</Main>
-            <Footer />
         </>
     );
 };

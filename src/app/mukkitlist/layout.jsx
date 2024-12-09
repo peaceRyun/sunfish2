@@ -18,7 +18,6 @@ const MukkitlistLayout = ({ children }) => {
         <>
             <Header type='type1' title='about' sharing={true} prev={true} />
             <Main>{children}</Main>
-            <Footer />
         </>
     );
 };
