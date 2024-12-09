@@ -43,37 +43,39 @@ const DiaryUnlockedPage = () => {
                     alt='bg1'
                     width={390}
                     height={180}
-                    className='opacity-50'
+                    className='w-full opacity-50'
                 />
             </Flex>
-            <Flex
-                width='100%'
-                gap='3'
-                direction='column'
-                p='0 20px'
-                className='absolute top-48 left-0'
-                flexWrap='wrap'
-                justifyContent='space-between'
-            >
-                <span className='text-xs text-gray-600'>2024</span>
-                {diaries.map((diary, index) => {
-                    const MoodIcon = moodIconMap[diary.mood.name];
-                    const { day, month, year } = formatDateParts(diary.date);
+            <div className='relative mx-auto'>
+                <Flex
+                    width='390px'
+                    gap='3'
+                    direction='column'
+                    p='0 20px'
+                    className='absolute top-0 left-0'
+                    flexWrap='wrap'
+                    justifyContent='space-between'
+                >
+                    <span className='text-xs text-gray-600'>2024</span>
+                    {diaries.map((diary, index) => {
+                        const MoodIcon = moodIconMap[diary.mood.name];
+                        const { day, month, year } = formatDateParts(diary.date);
 
-                    return (
-                        <DiaryCard
-                            key={index}
-                            MoodIcon={MoodIcon}
-                            fill={diary.mood.fill}
-                            title={diary.title}
-                            text={diary.text}
-                            day={day}
-                            month={month}
-                            year={year}
-                        />
-                    );
-                })}
-            </Flex>
+                        return (
+                            <DiaryCard
+                                key={index}
+                                MoodIcon={MoodIcon}
+                                fill={diary.mood.fill}
+                                title={diary.title}
+                                text={diary.text}
+                                day={day}
+                                month={month}
+                                year={year}
+                            />
+                        );
+                    })}
+                </Flex>
+            </div>
             <Box className='fixed bottom-20 left-1/2 -translate-x-1/2'>
                 <Link href='/diary/success/diaryunlocked/newdiary'>
                     <CirclePlus color='white' fill='#4892E0' size={50} strokeWidth={1} />

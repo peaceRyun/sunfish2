@@ -32,7 +32,7 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
             // 메인헤더
             case 'type1':
                 return (
-                    <header className='max-w-sm mx-auto fixed top-0 left-0 right-0 z-50 bg-white-700 backdrop-blur-md flex items-center h-20'>
+                    <header className='w-[390px] fixed top-0 left-1/2 -translate-x-1/2 z-50 bg-white-700 backdrop-blur-md flex items-center h-20'>
                         <Container size='full' className='flex justify-between items-center'>
                             <div aria-label='Global' className='flex items-center justify-between w-full'>
                                 <h1 className='flex'>

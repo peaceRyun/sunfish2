@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
             <body>
                 <Providers>
                     <SkipNav />
-                    <div id='wrap' className='mx-auto max-w-sm min-h-svh flex flex-col'>
+                    <div id='wrap' className='relative mx-auto max-w-[390px] min-h-svh flex flex-col'>
                         {children}
                     </div>
                 </Providers>
