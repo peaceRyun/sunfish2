@@ -8,18 +8,30 @@ import { useSelectedLayoutSegments } from 'next/navigation';
 
 const EncyclopediaLayout = ({ children }) => {
     const segments = useSelectedLayoutSegments();
-    const isPimplePage = segments.includes('pimple');
+    const lastSegment = segments[segments.length - 1];
 
-    // pimple 페이지일 경우 Header를 렌더링하지 않음
-    if (isPimplePage) {
-        return <>{children}</>;
-    }
+    const getLayoutConfig = () => {
+        const symptoms = ['pimple', 'musclepain', 'maldigestion'];
+
+        if (symptoms.includes(lastSegment)) {
+            return {
+                headerType: 'type3',
+                showHeader: true,
+            };
+        }
+
+        return {
+            headerType: 'type1',
+            showHeader: true,
+        };
+    };
+
+    const config = getLayoutConfig();
 
     return (
         <>
-            <Header />
+            {config.showHeader && <Header type={config.headerType} />}
             <Main>{children}</Main>
-            <Footer />
         </>
     );
 };

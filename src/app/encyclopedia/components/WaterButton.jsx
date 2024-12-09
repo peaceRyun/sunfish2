@@ -24,7 +24,7 @@ export default function WaterButton({ w = '100%', h = '100%', label, src, href }
             >
                 <Flex align='center' mr='auto' p='7px 14px' gap='6'>
                     <Image src={src} alt='icon' width='45' height='45' />
-                    <Heading size='md' fontWeight='normal' _hover={{ fontWeight: 'bold' }}>
+                    <Heading size='md' fontWeight='normal' _hover={{ fontWeight: 'bold' }} className='font-custom2'>
                         {label}
                     </Heading>
                 </Flex>

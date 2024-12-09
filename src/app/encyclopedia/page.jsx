@@ -10,12 +10,12 @@ const EncyclopediaPage = () => {
         {
             label: '목/어깨 통증 관리',
             src: '/images/pattern/encyclopeida/musclePain-icon.png',
-            href: '/encyclopedia/pimple',
+            href: '/encyclopedia/musclepain',
         },
         {
             label: '소화장애 관리',
             src: '/images/pattern/encyclopeida/stomachache-icon.png',
-            href: '/encyclopedia/pimple',
+            href: '/encyclopedia/maldigestion',
         },
     ];
 
@@ -27,8 +27,8 @@ const EncyclopediaPage = () => {
                     backgroundAttachment: 'fixed',
                 }}
             >
-                <Flex gap='8' direction='column' p='80px 20px'>
-                    <Heading>증상별 Encyclopedia</Heading>
+                <Flex gap='8' direction='column' p='100px 20px'>
+                    <Heading className='font-custom2'>증상별 Encyclopedia</Heading>
                     <Flex gap='4' direction='column'>
                         {symtoms.map((item, index) => {
                             return (
