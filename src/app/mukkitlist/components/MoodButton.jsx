@@ -24,7 +24,7 @@ const MoodButton = ({ title, subtitle, bgColor }) => {
         text-gray-700
       `}
         >
-            <div className='font-medium text-lg mb-2'>{title}</div>
+            <div className='font-medium text-lg mb-2 font-custom2'>{title}</div>
             <div className='text-sm'>{subtitle}</div>
         </button>
     );
