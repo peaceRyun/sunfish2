@@ -1,8 +1,8 @@
 import React from 'react';
 import Menu from './menu';
-import { Flex, Heading } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { LedBoardDaily } from './LedBoard';
-import 'animate.css';
+import Display from './components/Display';
 
 const Home = () => {
     return (
@@ -14,14 +14,12 @@ const Home = () => {
                     backgroundAttachment: 'fixed',
                 }}
             >
-                <Flex gap='4' direction='column' p='100px 20px 20px'>
+                <Flex gap='4' direction='column' p='100px 20px 100px'>
+                    <Display />
                     <Flex gap='4' direction='column'>
                         <LedBoardDaily />
                     </Flex>
-                    <Menu p='30px 0px 30px'></Menu>
-                    <Heading as='h2' size='lg' className='mx-auto py-40 animate__animated animate__flip font-custom2'>
-                        스트레스를 날려봅시다!
-                    </Heading>
+                    <Menu></Menu>
                 </Flex>
             </div>
         </>
