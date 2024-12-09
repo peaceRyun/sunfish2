@@ -46,7 +46,7 @@ export const tiredfoodlist = [
 ];
 
 export const colormap = {
-    버섯: 'amber.50',
+    버섯: 'yellow.50',
     호두: 'orange.50',
     연어: 'red.50',
     오리고기: 'red.50',

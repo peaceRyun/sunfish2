@@ -11,6 +11,8 @@ const getFoodColor = (name) => {
 };
 
 const FoodItem = ({ src, name }) => {
+    const imageSize = name.includes('초콜릿') || name.includes('사과') ? 50 : 60;
+
     return (
         <>
             <Link href='/mukkitlist/sad/saddishes'>
@@ -34,7 +36,7 @@ const FoodItem = ({ src, name }) => {
                         align='center'
                         className='w-full h-20 rounded-3xl  mx-auto'
                     >
-                        <Image src={src} alt='#' width='60' height='60' />
+                        <Image src={src} alt='#' width={imageSize} height={imageSize} />
                     </Flex>
                     <Box fontSize='sm' fontWeight='medium' textAlign='center'>
                         {name}
