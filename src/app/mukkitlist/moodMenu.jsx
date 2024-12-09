@@ -13,17 +13,17 @@ const MoodMenu = () => {
                     </Link>
                 </GridItem>
                 <GridItem>
-                    <Link href='/meditation'>
+                    <Link href='/mukkitlist/angry'>
                         <MoodButton title='화가날때' subtitle='먹으면 좋은 음식' bgColor='red' />
                     </Link>
                 </GridItem>
                 <GridItem>
-                    <Link href='/encyclopedia'>
+                    <Link href='/mukkitlist/anxiety'>
                         <MoodButton title='불안할때' subtitle='먹으면 좋은 음식' bgColor='orange' />
                     </Link>
                 </GridItem>
                 <GridItem>
-                    <Link href='/mukkitlist'>
+                    <Link href='/mukkitlist/tired'>
                         <MoodButton title='피곤할때' subtitle='먹으면 좋은 음식' bgColor='purple' />
                     </Link>
                 </GridItem>

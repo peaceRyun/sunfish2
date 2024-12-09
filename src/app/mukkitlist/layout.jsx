@@ -7,16 +7,42 @@ import { useSelectedLayoutSegments } from 'next/navigation';
 import React from 'react';
 
 const MukkitlistLayout = ({ children }) => {
-    const segments = useSelectedLayoutSegments();
-    const isSadPage = segments.includes('sad');
+    const emotions = ['angry', 'anxiety', 'sad', 'tired'];
 
-    // pimple 페이지일 경우 Header를 렌더링하지 않음
-    if (isSadPage) {
-        return <>{children}</>;
-    }
+    const segments = useSelectedLayoutSegments();
+
+    const lastSegment = segments[segments.length - 1];
+
+    const getLayoutConfig = () => {
+        if (emotions.some((emotion) => lastSegment?.indexOf(emotion))) {
+            return {
+                headerType: 'type2',
+                showHeader: true,
+                mainClassName: '',
+            };
+        }
+
+        switch (lastSegment) {
+            case 'angry' || 'anxiety' || 'sad' || 'tired':
+                return {
+                    headerType: 'type3',
+                    showHeader: true,
+                    mainClassName: '',
+                };
+            default:
+                return {
+                    headerType: 'type1',
+                    showHeader: true,
+                    mainClassName: '',
+                };
+        }
+    };
+
+    const config = getLayoutConfig();
+
     return (
         <>
-            <Header type='type1' title='about' sharing={true} prev={true} />
+            {config.showHeader && <Header type={config.headerType} />}
             <Main>{children}</Main>
         </>
     );

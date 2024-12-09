@@ -2,15 +2,15 @@
 
 import { Flex, SimpleGrid } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { sadfoodlist } from '@/data/foodlistData';
+import { angryfoodlist } from '@/data/foodlistData';
 import { Search } from 'lucide-react';
 import FoodItem from '../components/FoodItem';
 
-const SadPage = () => {
+const AngryPage = () => {
     const [search, setSearch] = useState('');
 
     const filterFoods = () => {
-        return sadfoodlist.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
+        return angryfoodlist.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
     };
 
     return (
@@ -38,4 +38,4 @@ const SadPage = () => {
     );
 };
 
-export default SadPage;
+export default AngryPage;

@@ -16,25 +16,21 @@ const DiaryLayout = ({ children }) => {
                 return {
                     headerType: 'type3',
                     showHeader: true,
-                    mainClassName: '',
                 };
             case 'diaryunlocked':
                 return {
                     headerType: 'type1',
                     showHeader: true,
-                    mainClassName: 'bg-custom-blue-200',
                 };
             case 'success':
                 return {
                     headerType: 'type1',
                     showHeader: false,
-                    mainClassName: '',
                 };
             default:
                 return {
                     headerType: 'type2',
                     showHeader: true,
-                    mainClassName: '',
                 };
         }
     };
@@ -44,7 +40,7 @@ const DiaryLayout = ({ children }) => {
     return (
         <>
             {config.showHeader && <Header type={config.headerType} />}
-            <Main className={config.mainClassName}>{children}</Main>
+            <Main>{children}</Main>
         </>
     );
 };
