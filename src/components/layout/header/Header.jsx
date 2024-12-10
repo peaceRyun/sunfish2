@@ -47,10 +47,10 @@ const Header = ({ type = 'type1', title, sharing, prev }) => {
                                                 className='h-8 w-auto'
                                             />
                                             <Flex direction='column'>
-                                                <div className={`leading-3 ${hiMelody.className}`}>Sunfish</div>
-                                                <div className={`leading-3 ${hiMelody.className}`}>
-                                                    Supporter for Your Stress
+                                                <div className={`leading-tight ${hiMelody.className}`}>
+                                                    스트레스 관리의 첫 걸음
                                                 </div>
+                                                <div className={`leading-tight ${hiMelody.className}`}>성인 개복치</div>
                                             </Flex>
                                         </Flex>
                                     </Link>

@@ -1,7 +1,7 @@
 import { Button } from '@chakra-ui/react';
 import React from 'react';
 
-const MenuButton = ({ label, bg, bgHover, url }) => {
+const MenuButton = ({ label, bg, bgHover, url, whiteSpace = 'normal' }) => {
     return (
         <Button
             width='full'
@@ -23,7 +23,7 @@ const MenuButton = ({ label, bg, bgHover, url }) => {
             padding='3'
             position='relative'
             transition='all 0.3s'
-            whiteSpace='normal'
+            whiteSpace={whiteSpace}
             textAlign='left'
             _hover={{
                 bg: bgHover,
@@ -48,7 +48,7 @@ const MenuButton = ({ label, bg, bgHover, url }) => {
                 bottom: '0',
                 right: '0',
                 bgImage: url,
-                bgSize: 'contatain',
+                bgSize: 'contain',
                 bgRepeat: 'no-repeat',
                 bgPosition: 'right',
                 borderRadius: 'md',
