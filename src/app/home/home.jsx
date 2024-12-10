@@ -15,7 +15,6 @@ const Home = () => {
                 }}
             >
                 <Flex gap='4' direction='column' p='100px 20px 100px'>
-                    <Display />
                     <Flex gap='4' direction='column'>
                         <LedBoardDaily />
                     </Flex>
