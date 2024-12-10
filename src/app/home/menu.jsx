@@ -20,8 +20,8 @@ const Menu = () => {
                     <Link href='/tdlregister' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='전광판 등록하기'
-                            bg='rgba(70, 180, 255, 0.6)'
-                            bgHover='rgba(70, 180, 255, 0.8)'
+                            bg='rgba(0, 153, 255, 0.6)'
+                            bgHover='rgba(0, 153, 255, 0.8)'
                             url='url(/images/pattern/main/tdlregister1.png)'
                         />
                     </Link>
@@ -30,8 +30,8 @@ const Menu = () => {
                     <Link href='/meditation' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='Time for 명상'
-                            bg='rgba(126,212,173,0.6)'
-                            bgHover='rgba(126,212,173,0.8)'
+                            bg='rgba(0, 255, 140, 0.6)'
+                            bgHover='rgba(0, 255, 140,0.8)'
                             url='url(/images/pattern/main/meditation1.png)'
                         />
                     </Link>
@@ -40,8 +40,8 @@ const Menu = () => {
                     <Link href='/encyclopedia' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='증상별 Encyclopedia'
-                            bg='rgba(98,167,37,0.6)'
-                            bgHover='rgba(98,167,37,0.8)'
+                            bg='rgba(78, 167, 0, 0.6)'
+                            bgHover='rgba(78, 167, 0,0.8)'
                             url='url(/images/pattern/main/encyclopedia1.png)'
                         />
                     </Link>
@@ -50,8 +50,8 @@ const Menu = () => {
                     <Link href='/mukkitlist' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='먹킷 list'
-                            bg='rgba(199,167,78,0.6)'
-                            bgHover='rgba(199,167,78,0.8)
+                            bg='rgba(202, 148, 0, 0.6)'
+                            bgHover='rgba(202, 148, 0,0.8)
                         '
                             url='url(/images/pattern/main/mukkitlist1.png)'
                         />
@@ -61,8 +61,8 @@ const Menu = () => {
                     <Link href='/diary' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='감정 Diary'
-                            bg='rgba(204,61,103,0.6)'
-                            bgHover='rgba(204,61,103,0.8)'
+                            bg='rgba(207, 0, 62, 0.6)'
+                            bgHover='rgba(207, 0, 62, 0.8)'
                             url='url(/images/pattern/main/diary1.png)'
                         />
                     </Link>
@@ -71,8 +71,8 @@ const Menu = () => {
                     <Link href='/entertain' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='힐링 Entertainment'
-                            bg='rgba(101,39,186,0.6)'
-                            bgHover='rgba(101,39,186,0.8)'
+                            bg='rgba(77, 0, 185, 0.6)'
+                            bgHover='rgba(77, 0, 185,0.8)'
                             url='url(/images/pattern/main/entertainment1.png)'
                         />
                     </Link>
