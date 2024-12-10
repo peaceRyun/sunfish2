@@ -14,7 +14,7 @@ const Home = () => {
                     backgroundAttachment: 'fixed',
                 }}
             >
-                <Flex gap='4' direction='column' p='100px 20px 100px'>
+                <Flex gap='4' direction='column' p='100px 20px 250px'>
                     <Flex gap='4' direction='column'>
                         <LedBoardDaily />
                     </Flex>
