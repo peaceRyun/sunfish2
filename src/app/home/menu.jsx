@@ -29,7 +29,8 @@ const Menu = () => {
                 <GridItem rowSpan={1} colSpan={1}>
                     <Link href='/diary' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
-                            label='감정 일기장'
+                            label='감정'
+                            label2='일기장'
                             bg='rgba(207, 0, 62, 0.6)'
                             bgHover='rgba(207, 0, 62, 0.8)'
                             iconName='diary'
@@ -51,7 +52,8 @@ const Menu = () => {
                 <GridItem rowSpan={1}>
                     <Link href='/mukkitlist' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
-                            label='먹킷 리스트'
+                            label='먹킷'
+                            label2='리스트'
                             bg='rgba(202, 148, 0, 0.6)'
                             bgHover='rgba(202, 148, 0,0.8)
                         '
@@ -62,7 +64,8 @@ const Menu = () => {
                 <GridItem rowSpan={1} colSpan={1}>
                     <Link href='/meditation' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
-                            label='명상의 시간'
+                            label='명상의'
+                            label2='시간'
                             bg='rgba(0, 255, 140, 0.6)'
                             bgHover='rgba(0, 255, 140,0.8)'
                             iconName='meditation'
