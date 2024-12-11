@@ -66,7 +66,7 @@ export default function Footer() {
     return (
         <footer className='!bg-white-700 backdrop-blur-md absolute bottom-0 left-0 right-0'>
             <div className='mx-auto max-w-7xl px-6 py-12'>
-                <div className='flex justify-center gap-x-6 md:order-2'>
+                <div className='flex justify-center gap-x-6 '>
                     {navigation.map((item) => (
                         <a key={item.name} href={item.href} className='text-gray-600 hover:text-gray-800'>
                             <span className='sr-only'>{item.name}</span>
@@ -74,7 +74,7 @@ export default function Footer() {
                         </a>
                     ))}
                 </div>
-                <p className='mt-8 text-center text-sm/6 text-gray-600 md:order-1 md:mt-0'>
+                <p className='mt-8 text-center text-sm/6 text-gray-600'>
                     &copy; 2024 Your Company, Inc. All rights reserved.
                 </p>
             </div>
