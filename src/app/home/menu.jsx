@@ -20,7 +20,7 @@ const Menu = () => {
                     <Link href='/tdlregister' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='전광판 등록하기'
-                            bg='rgba(0, 153, 255, 0.6)'
+                            bg='RGB(42, 158, 187)'
                             bgHover='rgba(0, 153, 255, 0.8)'
                             iconName='register'
                         />
@@ -31,7 +31,7 @@ const Menu = () => {
                         <MenuButton
                             label='감정'
                             label2='일기장'
-                            bg='rgba(207, 0, 62, 0.6)'
+                            bg=' RGB(141, 192, 188)'
                             bgHover='rgba(207, 0, 62, 0.8)'
                             iconName='diary'
                         />
@@ -42,7 +42,7 @@ const Menu = () => {
                         <MenuButton
                             label='증상별'
                             label2='백과사전'
-                            bg='rgba(78, 167, 0, 0.6)'
+                            bg='RGB(4, 177, 184)'
                             bgHover='rgba(78, 167, 0,0.8)'
                             iconName='encyclopedia'
                             whiteSpace='pre'
@@ -54,7 +54,7 @@ const Menu = () => {
                         <MenuButton
                             label='먹킷'
                             label2='리스트'
-                            bg='rgba(202, 148, 0, 0.6)'
+                            bg=' RGB(42, 158, 187)'
                             bgHover='rgba(202, 148, 0,0.8)
                         '
                             iconName='mukkit'
@@ -66,7 +66,7 @@ const Menu = () => {
                         <MenuButton
                             label='명상의'
                             label2='시간'
-                            bg='rgba(0, 255, 140, 0.6)'
+                            bg=' RGB(141, 192, 188)'
                             bgHover='rgba(0, 255, 140,0.8)'
                             iconName='meditation'
                         />
@@ -76,7 +76,7 @@ const Menu = () => {
                     <Link href='/entertain' style={{ display: 'block', height: '100%' }}>
                         <MenuButton
                             label='힐링 엔터테인먼트'
-                            bg='rgba(77, 0, 185, 0.6)'
+                            bg='RGB(4, 177, 184)'
                             bgHover='rgba(77, 0, 185,0.8)'
                             iconName='entertain'
                         />

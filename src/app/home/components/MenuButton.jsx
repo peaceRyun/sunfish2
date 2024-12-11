@@ -1,6 +1,7 @@
 import { Button } from '@chakra-ui/react';
 import React from 'react';
 import IconSprite from './IconSprite';
+import IconSpriteTwo from './IconSpriteTwo';
 
 const MenuButton = ({ label, label2 = '', bg, bgHover, iconName, whiteSpace = 'normal' }) => {
     return (
@@ -62,7 +63,7 @@ const MenuButton = ({ label, label2 = '', bg, bgHover, iconName, whiteSpace = 'n
                     transform: 'translate(0, 50%)',
                 }}
             >
-                <IconSprite iconName={iconName} size={70} />
+                <IconSpriteTwo iconName={iconName} size={100} />
             </div>
         </Button>
     );
