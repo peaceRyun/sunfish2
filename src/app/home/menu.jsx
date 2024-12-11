@@ -2,7 +2,7 @@ import { Box, Grid, GridItem } from '@chakra-ui/react';
 import React from 'react';
 import Link from 'next/link';
 import MenuButton from './components/MenuButton';
-import Image from 'next/image';
+import IconSprite from './components/IconSprite';
 
 const Menu = () => {
     return (
