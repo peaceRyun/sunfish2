@@ -1,7 +1,8 @@
 import { Button } from '@chakra-ui/react';
 import React from 'react';
+import IconSprite from './IconSprite';
 
-const MenuButton = ({ label, bg, bgHover, url, whiteSpace = 'normal' }) => {
+const MenuButton = ({ label, label2 = '', bg, bgHover, iconName, whiteSpace = 'normal' }) => {
     return (
         <Button
             width='full'
@@ -28,7 +29,7 @@ const MenuButton = ({ label, bg, bgHover, url, whiteSpace = 'normal' }) => {
             _hover={{
                 bg: bgHover,
                 boxShadow: '0 0 15px rgba(255, 255, 255, 0.2)',
-                _after: {
+                '& .icon-wrapper': {
                     transform: 'scale(1.1)',
                 },
             }}
@@ -40,23 +41,29 @@ const MenuButton = ({ label, bg, bgHover, url, whiteSpace = 'normal' }) => {
                 pointerEvents: 'none',
                 zIndex: '0',
             }}
-            _after={{
-                content: '""',
-                position: 'absolute',
-                width: '130px',
-                height: '86px',
-                bottom: '0',
-                right: '0',
-                bgImage: url,
-                bgSize: 'contain',
-                bgRepeat: 'no-repeat',
-                bgPosition: 'right',
-                borderRadius: 'md',
-                zIndex: -1,
-                transition: 'transform 0.3s ease',
-            }}
         >
-            {label}
+            <div style={{ width: '60%', lineHeight: '1.4' }}>
+                <div>{label}</div>
+                <div>{label2}</div>
+            </div>
+            <div
+                className='icon-wrapper'
+                style={{
+                    position: 'absolute',
+                    bottom: '50%',
+                    right: '0',
+                    width: '70px',
+                    height: '70px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    transition: 'transform 0.3s ease',
+                    zIndex: -1,
+                    transform: 'translate(0, 50%)',
+                }}
+            >
+                <IconSprite iconName={iconName} size={70} />
+            </div>
         </Button>
     );
 };
