@@ -301,3 +301,23 @@
         opacity: 1;
     }
 }
+
+.menu-icon {
+    position: absolute;
+    bottom: 50%;
+    translate: 0 50%;
+    right: 0;
+    z-index: -1;
+}
+
+.board {
+    background: url('/images/pattern/main/icons3.png') no-repeat -1050px -98px;
+    width: 106px;
+    height: 92px;
+}
+
+.entertain {
+    background: url('/images/pattern/main/icons3.png') no-repeat -870px -490px;
+    width: 89px;
+    height: 61px;
+}

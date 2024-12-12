@@ -2,6 +2,8 @@ import { Button } from '@chakra-ui/react';
 import React from 'react';
 import IconSprite from './IconSprite';
 import IconSpriteTwo from './IconSpriteTwo';
+import IconSpriteThird from './IconSpriteThird';
+import Image from 'next/image';
 
 const MenuButton = ({ label, label2 = '', bg, bgHover, iconName, whiteSpace = 'normal' }) => {
     return (
@@ -47,24 +49,24 @@ const MenuButton = ({ label, label2 = '', bg, bgHover, iconName, whiteSpace = 'n
                 <div>{label}</div>
                 <div>{label2}</div>
             </div>
-            <div
+            {/* <div
                 className='icon-wrapper'
                 style={{
                     position: 'absolute',
-                    bottom: '50%',
+                    bottom: '0',
                     right: '0',
-                    width: '70px',
-                    height: '70px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    width: '100px',
+                    height: '100px',
                     transition: 'transform 0.3s ease',
                     zIndex: -1,
-                    transform: 'translate(0, 50%)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                 }}
             >
-                <IconSpriteTwo iconName={iconName} size={100} />
-            </div>
+                <IconSpriteThird iconName={iconName} size={100} />
+            </div> */}
+            <div className='menu-icon entertain'></div>
         </Button>
     );
 };
