@@ -306,18 +306,44 @@
     position: absolute;
     bottom: 50%;
     translate: 0 50%;
-    right: 0;
+    right: 10%;
     z-index: -1;
 }
 
-.board {
-    background: url('/images/pattern/main/icons3.png') no-repeat -1050px -98px;
-    width: 106px;
-    height: 92px;
+.register {
+    background: url('/images/pattern/main/icons4.png') no-repeat -524px -49px;
+    width: 54px;
+    height: 47px;
+    right: 5%;
 }
 
 .entertain {
-    background: url('/images/pattern/main/icons3.png') no-repeat -870px -490px;
-    width: 89px;
-    height: 61px;
+    background: url('/images/pattern/main/icons4.png') no-repeat -434px -244px;
+    width: 46px;
+    height: 32px;
+    right: 5%;
+}
+
+.diary {
+    background: url('/images/pattern/main/icons4.png') no-repeat -64px -143px;
+    width: 36px;
+    height: 46px;
+}
+
+.encyclopedia {
+    background: url('/images/pattern/main/icons4.png') no-repeat -525px -140px;
+    width: 52px;
+    height: 52px;
+}
+
+.meditation {
+    background: url('/images/pattern/main/icons4.png') no-repeat -617px -707px;
+    width: 54px;
+    height: 46px;
+}
+
+.mukkit {
+    background: url('/images/pattern/main/icons4.png') no-repeat -722px -710px;
+    width: 34px;
+    height: 45px;
 }

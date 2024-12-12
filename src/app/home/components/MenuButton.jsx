@@ -4,6 +4,7 @@ import IconSprite from './IconSprite';
 import IconSpriteTwo from './IconSpriteTwo';
 import IconSpriteThird from './IconSpriteThird';
 import Image from 'next/image';
+import classNames from 'classnames';
 
 const MenuButton = ({ label, label2 = '', bg, bgHover, iconName, whiteSpace = 'normal' }) => {
     return (
@@ -66,7 +67,7 @@ const MenuButton = ({ label, label2 = '', bg, bgHover, iconName, whiteSpace = 'n
             >
                 <IconSpriteThird iconName={iconName} size={100} />
             </div> */}
-            <div className='menu-icon entertain'></div>
+            <div className={classNames('menu-icon', iconName)}></div>
         </Button>
     );
 };
