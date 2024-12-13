@@ -6,7 +6,7 @@ export async function GET() {
         const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
         // API 요청 URL을 콘솔에 출력하여 확인
-        const url = `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/COOKRCP01/json/1/5`;
+        const url = `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/COOKRCP01/json/1/100`;
         console.log('Requesting URL:', url);
 
         const response = await axios.get(url);

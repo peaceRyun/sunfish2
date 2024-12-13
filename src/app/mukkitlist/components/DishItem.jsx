@@ -49,12 +49,13 @@ const DishItem = () => {
                             className='rounded'
                         />
                     </div>
-                    <div className='flex flex-col gap-2 text-sm'>
+                    <div className='flex flex-col gap-2 text-sm w-[200px]'>
                         <h3>{item.RCP_NM}</h3>
                         <div className='flex gap-1 items-center'>
                             <Star size={15} />
                             <strong>5.0</strong>
-                            <span>· nickname</span>
+                            <span className='text-gray-500 text-xs'>· (1)</span>
+                            <span className='text-gray-500 text-xs'>· 닉네임</span>
                         </div>
                         <div className='flex gap-2'>
                             <div className='flex gap-1 items-center border rounded p-1 text-xs'>
