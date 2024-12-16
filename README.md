@@ -27,26 +27,83 @@ Next.js와 jsx를 기반으로 제작된 프로젝트로, 현대적인 웹 개�
 ## 📂 프로젝트 구조
 
 ```
-my-blog/
-├── app/
-│   ├── @[username]/  # 페이지 라우트
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   ├── write/
-│   │   │   └── page.tsx
-│   │   └── [id]/
-│   │       ├── page.tsx
-│   │       └── edit/
-│   │           └── page.tsx
-│   ├── api/         # API 라우트
-│   │   ├── posts/   # 전체 글 관련
-│   │   │   └── route.ts  # GET: 전체 글 목록
-│   │   └── @[username]/  # 특정 유저 관련
-│   │       ├── route.ts  # GET: 유저 정보
-│   │       ├── posts/    # 유저의 글 목록
-│   │       │   └── route.ts  # GET: 목록, POST: 새 글 작성
-│   │       └── [id]/     # 특정 글 관련
-│   │           └── route.ts  # GET: 조회, PUT: 수정, DELETE: 삭제
-│   ├── layout.tsx
-│   └── page.tsx
+sunfish2
+
+├── public
+    ├─fonts
+    └─images
+        ├─components
+        └─pattern
+            ├─encyclopeida
+            ├─main
+            └─mukkitlist
+                └─menu
+├── src
+    ├─app
+    │  ├─(auth)
+    │  │  ├─login
+    │  │  └─signup
+    │  ├─about
+    │  ├─api
+    │  │  └─food
+    │  ├─diary
+    │  │  ├─components
+    │  │  └─success
+    │  │      └─diaryunlocked
+    │  │          ├─components
+    │  │          └─newdiary
+    │  │              └─components
+    │  ├─encyclopedia
+    │  │  ├─components
+    │  │  ├─maldigestion
+    │  │  ├─musclepain
+    │  │  └─pimple
+    │  ├─entertain
+    │  ├─home
+    │  │  ├─about
+    │  │  │  └─components
+    │  │  └─components
+    │  ├─meditation
+    │  ├─mukkitlist
+    │  │  ├─angry
+    │  │  │  └─angrydishes
+    │  │  │      └─[id]
+    │  │  ├─anxiety
+    │  │  │  └─anxietydishes
+    │  │  │      └─[id]
+    │  │  ├─components
+    │  │  ├─sad
+    │  │  │  └─saddishes
+    │  │  │      └─[id]
+    │  │  └─tired
+    │  │      └─tireddishes
+    │  │          └─[id]
+    │  ├─news
+    │  │  └─[id]
+    │  └─tdlregister
+    │      └─components
+    ├─components
+    │  ├─layout
+    │  │  └─header
+    │  ├─list
+    │  ├─pattern
+    │  │  └─form
+    │  ├─providers
+    │  └─ui
+    ├─contexts
+    ├─data
+    ├─styles
+    └─theme
+        └─components
+├── .eslintrc.json
+├── .gitignore
+├── jsconfig.json
+├── next.config.js
+├── next.config.mjs
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── README.md
+├── tailwind.config.js
+└── yarn.lock
 ```
