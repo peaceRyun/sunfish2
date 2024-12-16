@@ -5,15 +5,14 @@
 -   2024.11.25 ~ 27 피그마 디자인
 -   2024.11.28 ~ 12.14 코딩 개발
 
-# 📘 TypeScript Study Project
+# 📘 React Study Project
 
-Next.js와 TypeScript를 기반으로 제작된 프로젝트로, 현대적인 웹 개발 사례와 기술을 활용하여 구현되었습니다.
+Next.js와 jsx를 기반으로 제작된 프로젝트로, 현대적인 웹 개발 사례와 기술을 활용하여 구현되었습니다.
 
 ## 🛠️ 기술 스택
 
 - **Next.js 14**: 최신 버전의 Next.js 프레임워크
 - **React 18**: 리액트 최신 버전
-- **TypeScript**: 타입 안정성이 보장된 JavaScript
 - **Tailwind CSS**: 유틸리티 우선 CSS 프레임워크
 - **Chakra UI**: 접근성이 고려된 컴포넌트 라이브러리
 - **React Icons**: 고품질 SVG 아이콘 세트
