@@ -16,7 +16,7 @@ const SadDishesPage = () => {
                 </Flex>
             </div>
             <Flex direction='column' gap='1' p='80px 20px'>
-                <DishItem />
+                <DishItem filterId='연두부' />
             </Flex>
         </>
     );

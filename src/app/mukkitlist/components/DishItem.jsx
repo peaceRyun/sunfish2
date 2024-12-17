@@ -5,10 +5,11 @@ import { ChefHat, Star, UserRound } from 'lucide-react';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
-const DishItem = () => {
+const DishItem = ({ filterId }) => {
     const [dishData, setDishData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [filteredRecipes, setFilteredRecipes] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -16,6 +17,12 @@ const DishItem = () => {
                 // /api/food로 요청을 보냅니다 (Next.js API 라우트)
                 const response = await axios.get('/api/food');
                 setDishData(response.data);
+                const recipes = response.data.COOKRCP01?.row || [];
+                const filtered = recipes.filter((recipe) => {
+                    return recipe.RCP_PARTS_DTLS && recipe.RCP_PARTS_DTLS.includes(filterId);
+                });
+
+                setFilteredRecipes(filtered);
                 setLoading(false);
             } catch (err) {
                 setError(err.message);
@@ -24,11 +31,12 @@ const DishItem = () => {
         };
 
         fetchData();
-    }, []);
+    }, [filterId]);
 
     if (loading) return <div>로딩 중...</div>;
     if (error) return <div>에러 발생: {error}</div>;
     if (!dishData) return <div>데이터가 없습니다</div>;
+    if (filteredRecipes.length === 0) return <div>해당하는 레시피가 없습니다</div>;
 
     console.log(dishData);
     // API 응답 데이터 구조에 맞춰 접근
@@ -38,7 +46,7 @@ const DishItem = () => {
     console.log(recipe);
     return (
         <>
-            {recipeArr.map((item) => (
+            {filteredRecipes.map((item) => (
                 <Flex key={item.INFO_CAR} className='relative' align='center' justify='space-between'>
                     <div className='relative w-[100px] h-[100px] rounded overflow-hidden'>
                         <Image
