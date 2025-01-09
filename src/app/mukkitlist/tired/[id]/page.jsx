@@ -3,7 +3,7 @@
 import React from 'react';
 import { Flex } from '@chakra-ui/react';
 import { Filter } from 'lucide-react';
-import { sadfoodlist } from '@/data/foodlistData';
+import { tiredfoodlist } from '@/data/foodlistData';
 import { useParams } from 'next/navigation';
 import DishItem from '../../components/DishItem';
 
@@ -11,7 +11,7 @@ const DishDetail = () => {
     const params = useParams();
     const id = parseInt(params.id);
 
-    const food = sadfoodlist.find((item) => item.id === id);
+    const food = tiredfoodlist.find((item) => item.id === id);
 
     if (!food) {
         return <div>찾을 수 없는 음식입니다.</div>;
