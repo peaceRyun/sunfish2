@@ -10,12 +10,12 @@ const getFoodColor = (name) => {
     return colormap[name] || 'gray.50';
 };
 
-const FoodItem = ({ src, name }) => {
+const FoodItem = ({ src, name, id }) => {
     const imageSize = name.includes('초콜릿') || name.includes('사과') ? 50 : 60;
 
     return (
         <>
-            <Link href='/mukkitlist/sad/saddishes'>
+            <Link href={`/mukkitlist/sad/${id}`}>
                 <GridItem
                     as='li'
                     className='text-center flex flex-col gap-2'

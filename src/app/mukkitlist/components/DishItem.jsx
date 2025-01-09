@@ -11,47 +11,83 @@ const DishItem = ({ filterId }) => {
     const [error, setError] = useState(null);
     const [filteredRecipes, setFilteredRecipes] = useState([]);
 
+    // 재료 문자열에서 실제 재료만 추출하는 함수
+    const extractIngredients = (partsString) => {
+        if (!partsString) return [];
+
+        // 재료 부분만 추출 (첫 번째 콜론이나 관련 문자 이후의 텍스트)
+        const ingredientPart = partsString.split(/[:]|\s-\s/)[0];
+
+        // 재료들을 개별적으로 분리
+        return ingredientPart
+            .split(/[,()]/)
+            .map((item) => item.trim())
+            .filter((item) => item.length > 0);
+    };
+
+    // 재료가 포함되어 있는지 확인하는 함수
+    const hasIngredient = (partsString, searchIngredient) => {
+        if (!partsString || !searchIngredient) return false;
+
+        // 재료 목록 추출
+        const ingredients = extractIngredients(partsString);
+
+        // 검색할 재료 이름 정규화
+        const normalizedSearch = searchIngredient.toLowerCase().trim();
+
+        // 각 재료에 대해 검색
+        return ingredients.some(
+            (ingredient) =>
+                ingredient.toLowerCase().includes(normalizedSearch) ||
+                ingredient.toLowerCase().includes(searchIngredient.toLowerCase())
+        );
+    };
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // /api/food로 요청을 보냅니다 (Next.js API 라우트)
                 const response = await axios.get('/api/food');
+                console.log('Searching for ingredient:', filterId);
                 setDishData(response.data);
+
                 const recipes = response.data.COOKRCP01?.row || [];
                 const filtered = recipes.filter((recipe) => {
-                    return recipe.RCP_PARTS_DTLS && recipe.RCP_PARTS_DTLS.includes(filterId);
+                    const included = hasIngredient(recipe.RCP_PARTS_DTLS, filterId);
+                    if (included) {
+                        console.log('Found match:', recipe.RCP_NM);
+                    }
+                    return included;
                 });
 
+                console.log(`Found ${filtered.length} recipes with ${filterId}`);
                 setFilteredRecipes(filtered);
                 setLoading(false);
             } catch (err) {
+                console.error('Error fetching data:', err);
                 setError(err.message);
                 setLoading(false);
             }
         };
 
-        fetchData();
+        if (filterId) {
+            fetchData();
+        }
     }, [filterId]);
 
+    if (!filterId) return <div>필터 ID가 없습니다.</div>;
     if (loading) return <div>로딩 중...</div>;
     if (error) return <div>에러 발생: {error}</div>;
     if (!dishData) return <div>데이터가 없습니다</div>;
     if (filteredRecipes.length === 0) return <div>해당하는 레시피가 없습니다</div>;
 
-    console.log(dishData);
-    // API 응답 데이터 구조에 맞춰 접근
-    const recipe = dishData.COOKRCP01?.row[0] || {};
-    const recipeArr = dishData.COOKRCP01?.row;
-
-    console.log(recipe);
     return (
         <>
             {filteredRecipes.map((item) => (
-                <Flex key={item.INFO_CAR} className='relative' align='center' justify='space-between'>
+                <Flex key={item.RCP_SEQ} className='relative' align='center' justify='space-between'>
                     <div className='relative w-[100px] h-[100px] rounded overflow-hidden'>
                         <Image
                             src={item.ATT_FILE_NO_MAIN}
-                            alt='요리'
+                            alt={item.RCP_NM}
                             fill
                             style={{ objectFit: 'contain' }}
                             className='rounded'
@@ -68,7 +104,7 @@ const DishItem = ({ filterId }) => {
                         <div className='flex gap-2'>
                             <div className='flex gap-1 items-center border rounded p-1 text-xs'>
                                 <UserRound size={15} />
-                                {item.INFO_WGT}인분
+                                {item.INFO_WGT || '1'}인분
                             </div>
                             <div className='flex gap-1 items-center border rounded p-1 text-xs'>
                                 <ChefHat size={15} />

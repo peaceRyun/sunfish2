@@ -2,11 +2,21 @@
 
 import React from 'react';
 import { Flex } from '@chakra-ui/react';
-import AccordionFood from '../../components/AccordionFood';
-import DishItem from '../../components/DishItem';
 import { Filter } from 'lucide-react';
+import { sadfoodlist } from '@/data/foodlistData';
+import { useParams } from 'next/navigation';
+import DishItem from '../../components/DishItem';
 
 const SadDishesPage = () => {
+    const params = useParams();
+    const id = parseInt(params.id);
+
+    const food = sadfoodlist.find((item) => item.id === id);
+
+    if (!food) {
+        return <div>찾을 수 없는 음식입니다.</div>;
+    }
+
     return (
         <>
             <div className='border-t my-4'>
@@ -16,7 +26,7 @@ const SadDishesPage = () => {
                 </Flex>
             </div>
             <Flex direction='column' gap='1' p='80px 20px'>
-                <DishItem filterId='연두부' />
+                <DishItem filterId={food.name} />
             </Flex>
         </>
     );
